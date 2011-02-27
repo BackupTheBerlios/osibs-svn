@@ -1,0 +1,2204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>baseStation</class>
+ <widget class="QMainWindow" name="baseStation">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>730</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>730</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>osiBS</string>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="whatsThis">
+   <string>This ist the osiBaseStation tool calles osiBS. It will help you to setup and controll your osiFC driven Flyer.</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_56">
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="mainTab">
+      <property name="minimumSize">
+       <size>
+        <width>693</width>
+        <height>453</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Cockpit">
+       <attribute name="title">
+        <string>Cockpit</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_75">
+        <property name="leftMargin">
+         <number>2</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>1</number>
+        </property>
+        <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <property name="horizontalSpacing">
+         <number>0</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>1</number>
+        </property>
+        <item row="0" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item>
+           <widget class="QGroupBox" name="Compass">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>Compass</string>
+            </property>
+            <layout class="QVBoxLayout" name="compassPlace"/>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="Attitude">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>188</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>Attitude</string>
+            </property>
+            <layout class="QVBoxLayout" name="attitudePlace"/>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="AltidudeGain_3">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>75</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>Gain Y</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QwtSlider" name="gainY">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="scalePosition">
+                <enum>QwtSlider::LeftScale</enum>
+               </property>
+               <property name="thumbLength">
+                <number>8</number>
+               </property>
+               <property name="thumbWidth">
+                <number>14</number>
+               </property>
+               <property name="borderWidth">
+                <number>2</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="Speed">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>Speed</string>
+            </property>
+            <layout class="QVBoxLayout" name="speedPlace"/>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_74">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="2">
+             <widget class="QGroupBox" name="AltidudeGain_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>85</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>85</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Gain X</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <property name="leftMargin">
+                <number>1</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QwtSlider" name="gainX">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="scalePosition">
+                  <enum>QwtSlider::TopScale</enum>
+                 </property>
+                 <property name="thumbLength">
+                  <number>8</number>
+                 </property>
+                 <property name="thumbWidth">
+                  <number>14</number>
+                 </property>
+                 <property name="borderWidth">
+                  <number>2</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QGroupBox" name="groupBox_3">
+              <property name="minimumSize">
+               <size>
+                <width>258</width>
+                <height>85</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>85</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Engines</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <property name="leftMargin">
+                <number>3</number>
+               </property>
+               <property name="topMargin">
+                <number>2</number>
+               </property>
+               <property name="rightMargin">
+                <number>2</number>
+               </property>
+               <property name="bottomMargin">
+                <number>2</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QSlider" name="EngineBar_1">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSlider" name="EngineBar_2">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QSlider" name="EngineBar_3">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QSlider" name="EngineBar_4">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QSlider" name="EngineBar_5">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QSlider" name="EngineBar_6">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="6">
+                <widget class="QSlider" name="EngineBar_7">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QSlider" name="EngineBar_8">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="4" rowspan="2">
+             <widget class="QGroupBox" name="AltidudeGain">
+              <property name="title">
+               <string>Alt Gain</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QwtSlider" name="altitudeGainMeter">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="scalePosition">
+                  <enum>QwtSlider::LeftScale</enum>
+                 </property>
+                 <property name="bgStyle">
+                  <enum>QwtSlider::BgTrough</enum>
+                 </property>
+                 <property name="thumbLength">
+                  <number>8</number>
+                 </property>
+                 <property name="thumbWidth">
+                  <number>14</number>
+                 </property>
+                 <property name="borderWidth">
+                  <number>2</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" rowspan="2">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="groupBox_8">
+                <property name="title">
+                 <string>Altitude</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_11">
+                 <item row="0" column="0">
+                  <widget class="QLCDNumber" name="altitude">
+                   <property name="font">
+                    <font>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="smallDecimalPoint">
+                    <bool>false</bool>
+                   </property>
+                   <property name="segmentStyle">
+                    <enum>QLCDNumber::Flat</enum>
+                   </property>
+                   <property name="intValue" stdset="0">
+                    <number>0</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_9">
+                <property name="title">
+                 <string>Distance</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_12">
+                 <item row="0" column="0">
+                  <widget class="QLCDNumber" name="distance">
+                   <property name="smallDecimalPoint">
+                    <bool>false</bool>
+                   </property>
+                   <property name="segmentStyle">
+                    <enum>QLCDNumber::Flat</enum>
+                   </property>
+                   <property name="intValue" stdset="0">
+                    <number>0</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_10">
+                <property name="title">
+                 <string>Runtime</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_13">
+                 <item row="0" column="0">
+                  <widget class="QLCDNumber" name="runTime">
+                   <property name="smallDecimalPoint">
+                    <bool>false</bool>
+                   </property>
+                   <property name="numDigits">
+                    <number>4</number>
+                   </property>
+                   <property name="segmentStyle">
+                    <enum>QLCDNumber::Flat</enum>
+                   </property>
+                   <property name="intValue" stdset="0">
+                    <number>0</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="2" colspan="2">
+             <widget class="QGroupBox" name="groupBox_4">
+              <property name="title">
+               <string>RC Channels</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <property name="leftMargin">
+                <number>5</number>
+               </property>
+               <property name="topMargin">
+                <number>1</number>
+               </property>
+               <property name="rightMargin">
+                <number>5</number>
+               </property>
+               <property name="bottomMargin">
+                <number>3</number>
+               </property>
+               <property name="horizontalSpacing">
+                <number>7</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="3">
+                <widget class="QSlider" name="RCChanBar_2">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QSlider" name="RCChanBar_3">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QSlider" name="RCChanBar_4">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="9">
+                <widget class="QSlider" name="RCChanBar_5">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="11">
+                <widget class="QSlider" name="RCChanBar_6">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="13">
+                <widget class="QSlider" name="RCChanBar_7">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="15">
+                <widget class="QSlider" name="RCChanBar_8">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="17">
+                <widget class="QSlider" name="RCChanBar_9">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="19">
+                <widget class="QSlider" name="RCChanBar_10">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="21">
+                <widget class="QSlider" name="RCChanBar_11">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="22">
+                <widget class="QSlider" name="RCChanBar_12">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="22">
+                <widget class="QLineEdit" name="RCChanText_12">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="21">
+                <widget class="QLineEdit" name="RCChanText_11">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="19">
+                <widget class="QLineEdit" name="RCChanText_10">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="17">
+                <widget class="QLineEdit" name="RCChanText_9">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="15">
+                <widget class="QLineEdit" name="RCChanText_8">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="13">
+                <widget class="QLineEdit" name="RCChanText_7">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="11">
+                <widget class="QLineEdit" name="RCChanText_6">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="9">
+                <widget class="QLineEdit" name="RCChanText_5">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="RCChanText_4">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="RCChanText_3">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="RCChanText_2">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="RCChanText_1">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>4</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSlider" name="RCChanBar_1">
+                 <property name="maximum">
+                  <number>255</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1" rowspan="2">
+             <widget class="QGroupBox" name="UBatCok">
+              <property name="title">
+               <string>Battery</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <property name="leftMargin">
+                <number>2</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>3</number>
+               </property>
+               <property name="bottomMargin">
+                <number>3</number>
+               </property>
+               <property name="horizontalSpacing">
+                <number>0</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>6</number>
+               </property>
+               <item row="1" column="1">
+                <widget class="QProgressBar" name="UBat">
+                 <property name="minimumSize">
+                  <size>
+                   <width>43</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximum">
+                  <number>180</number>
+                 </property>
+                 <property name="value">
+                  <number>0</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="2">
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="UBatText">
+                 <property name="font">
+                  <font>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="maxLength">
+                  <number>5</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_232">
+          <property name="text">
+           <string>Messages</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QTextBrowser" name="messages">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Maps">
+       <attribute name="title">
+        <string>Maps</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_71">
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="80,20">
+          <property name="spacing">
+           <number>3</number>
+          </property>
+          <item>
+           <widget class="QGroupBox" name="groupBox_5">
+            <property name="title">
+             <string>Map</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4" stretch="92,8">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="margin">
+              <number>0</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" name="mapLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="mapSliderLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="minimumSize">
+             <size>
+              <width>162</width>
+              <height>150</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>162</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_67">
+             <property name="margin">
+              <number>0</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QTabWidget" name="wayPointTabs">
+               <property name="minimumSize">
+                <size>
+                 <width>149</width>
+                 <height>154</height>
+                </size>
+               </property>
+               <property name="mouseTracking">
+                <bool>true</bool>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <widget class="QWidget" name="pos">
+                <attribute name="title">
+                 <string>Pos</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>4</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>4</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_14">
+                   <property name="title">
+                    <string>Home Position </string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_69">
+                    <item row="0" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_7">
+                      <property name="smallDecimalPoint">
+                       <bool>false</bool>
+                      </property>
+                      <property name="numDigits">
+                       <number>9</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_8">
+                      <property name="numDigits">
+                       <number>9</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_241">
+                      <property name="maximumSize">
+                       <size>
+                        <width>20</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>x</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_242">
+                      <property name="text">
+                       <string>y</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_11">
+                   <property name="title">
+                    <string>Actual Position </string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_68">
+                    <item row="0" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber">
+                      <property name="smallDecimalPoint">
+                       <bool>false</bool>
+                      </property>
+                      <property name="numDigits">
+                       <number>9</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_2">
+                      <property name="numDigits">
+                       <number>9</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_239">
+                      <property name="maximumSize">
+                       <size>
+                        <width>20</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>x</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_240">
+                      <property name="text">
+                       <string>y</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_12">
+                   <property name="title">
+                    <string>Target Position</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_70">
+                    <item row="1" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_4">
+                      <property name="numDigits">
+                       <number>9</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_3">
+                      <property name="numDigits">
+                       <number>9</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_243">
+                      <property name="maximumSize">
+                       <size>
+                        <width>20</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>x</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_244">
+                      <property name="minimumSize">
+                       <size>
+                        <width>20</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>y</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_13">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>89</height>
+                    </size>
+                   </property>
+                   <property name="title">
+                    <string>Misc m</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>1</number>
+                    </property>
+                    <property name="verticalSpacing">
+                     <number>5</number>
+                    </property>
+                    <item row="1" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_5">
+                      <property name="minimumSize">
+                       <size>
+                        <width>60</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="numDigits">
+                       <number>4</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_9">
+                      <property name="minimumSize">
+                       <size>
+                        <width>60</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="numDigits">
+                       <number>4</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_227">
+                      <property name="maximumSize">
+                       <size>
+                        <width>40</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Dist</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_228">
+                      <property name="text">
+                       <string>Alt</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="QLCDNumber" name="lcdNumber_6">
+                      <property name="minimumSize">
+                       <size>
+                        <width>60</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="numDigits">
+                       <number>4</number>
+                      </property>
+                      <property name="segmentStyle">
+                       <enum>QLCDNumber::Flat</enum>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_229">
+                      <property name="text">
+                       <string>Speed</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_27">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="wayP">
+                <attribute name="title">
+                 <string>wayP</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>4</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_78">
+                   <item row="2" column="0">
+                    <widget class="QSpinBox" name="wayPointNum">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="maximum">
+                      <number>10</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QCheckBox" name="checkBox">
+                     <property name="text">
+                      <string>Collect</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_233">
+                     <property name="text">
+                      <string>Way Point</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_249">
+                     <property name="text">
+                      <string>Elevation</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="wayPointElevation">
+                     <property name="maximum">
+                      <number>8850</number>
+                     </property>
+                     <property name="value">
+                      <number>523</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_76">
+                   <item row="2" column="0">
+                    <widget class="QSpinBox" name="wayPointWaitTime">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="minimum">
+                      <number>20</number>
+                     </property>
+                     <property name="maximum">
+                      <number>120</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_230">
+                     <property name="text">
+                      <string>Wait time s</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLabel" name="label_231">
+                     <property name="text">
+                      <string>Action</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QComboBox" name="wayPointAction">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Hover</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>turn 360</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>turn 240</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>turn 180</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_77">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_234">
+                     <property name="text">
+                      <string>longitude</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLineEdit" name="wayPointLong">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="maxLength">
+                      <number>10</number>
+                     </property>
+                     <property name="readOnly">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="label_235">
+                     <property name="text">
+                      <string>latitude</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="wayPointLat">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="maxLength">
+                      <number>10</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_245">
+                     <property name="text">
+                      <string>Altitude</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="label_246">
+                     <property name="text">
+                      <string>Speed  m/s</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QSpinBox" name="wayPointAlt">
+                     <property name="maximum">
+                      <number>250</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QSpinBox" name="wayPointSpeed">
+                     <property name="maximum">
+                      <number>5</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>1</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_79">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_236">
+                     <property name="text">
+                      <string>Waypoints</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QPushButton" name="pushButton_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>add</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="pushButton_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>remove</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_247">
+                     <property name="text">
+                      <string>Flight Path</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QPushButton" name="pushButton_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>run</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_237">
+                     <property name="text">
+                      <string>Position</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QPushButton" name="pushButton_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>go to</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="pushButton_6">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>17</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Home</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QLabel" name="label_248">
+                     <property name="text">
+                      <string>Homing</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="pushButton_7">
+                     <property name="text">
+                      <string>stop</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QPushButton" name="pushButton_8">
+                     <property name="text">
+                      <string>resume</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="wayPs">
+                <attribute name="title">
+                 <string>wayPL</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>3</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>4</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>4</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>3</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_238">
+                   <property name="text">
+                    <string>Way Point List</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPlainTextEdit" name="wayPointList">
+                   <property name="acceptDrops">
+                    <bool>false</bool>
+                   </property>
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Setup">
+       <attribute name="title">
+        <string>Setup</string>
+       </attribute>
+       <widget class="QWidget" name="gridLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>721</width>
+          <height>391</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="setupGrid"/>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>707</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QPushButton" name="readSetting">
+           <property name="text">
+            <string>Read Setting</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="readSetHdd">
+           <property name="text">
+            <string>Read Set. HDD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="resetOsiFC">
+           <property name="text">
+            <string>Reset osiFC</string>
+           </property>
+           <property name="autoRepeat">
+            <bool>false</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>false</bool>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="flashSetting">
+           <property name="text">
+            <string>Flash Settings</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="writeSetHDD">
+           <property name="text">
+            <string>Write Set. HDD</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="writeSetting">
+           <property name="text">
+            <string>Write Setting</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_199">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="lineWidth">
+            <number>0</number>
+           </property>
+           <property name="text">
+            <string>Setting Num</string>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="settingNum">
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::UpDownArrows</enum>
+           </property>
+           <property name="maximum">
+            <number>5</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_225">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="lineWidth">
+            <number>1</number>
+           </property>
+           <property name="text">
+            <string>osiFC Num</string>
+           </property>
+           <property name="margin">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="osiFcNum">
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::UpDownArrows</enum>
+           </property>
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>255</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Diagnostics">
+       <attribute name="title">
+        <string>Diagnostics</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <widget class="QwtPlot" name="qwtPlot">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollBar" name="horizontalScrollBar">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>12</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>9999999</width>
+            <height>12</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="EnableData">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>111</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Enable Data</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_35">
+           <item row="3" column="0">
+            <widget class="QCheckBox" name="checkADCNick">
+             <property name="text">
+              <string>ADC Nick</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QCheckBox" name="checkADCRoll">
+             <property name="text">
+              <string>ADC Roll</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QCheckBox" name="checkADCPitch">
+             <property name="text">
+              <string>ADC Pitch</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QCheckBox" name="checkADCX">
+             <property name="text">
+              <string>ADC X</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QCheckBox" name="checkCycleCount">
+             <property name="text">
+              <string>CycleCnt</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QCheckBox" name="checkADCBaro">
+             <property name="text">
+              <string>ADC Baro</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QCheckBox" name="checkADCUbat">
+             <property name="text">
+              <string>ADC Ubat</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QCheckBox" name="checkADCZ">
+             <property name="text">
+              <string>ADC Z</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QCheckBox" name="checkADCY">
+             <property name="text">
+              <string>ADC Y</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3">
+            <widget class="QCheckBox" name="checkEng2">
+             <property name="text">
+              <string>Eng 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QCheckBox" name="checkEng1">
+             <property name="text">
+              <string>Eng 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QCheckBox" name="checkEng3">
+             <property name="text">
+              <string>Eng 3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3">
+            <widget class="QCheckBox" name="checkEng4">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Eng 4</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QCheckBox" name="checkEng5">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Eng 5</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="4">
+            <widget class="QCheckBox" name="checkEng6">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Eng 6</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <widget class="QCheckBox" name="checkEng7">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Eng 7</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="4">
+            <widget class="QCheckBox" name="checkEng8">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Eng 8</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="5">
+            <widget class="QCheckBox" name="checkChan1">
+             <property name="text">
+              <string>Chan 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="5">
+            <widget class="QCheckBox" name="checkChan2">
+             <property name="text">
+              <string>Chan 2</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="5">
+            <widget class="QCheckBox" name="checkChan3">
+             <property name="text">
+              <string>Chan 3</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="5">
+            <widget class="QCheckBox" name="checkChan4">
+             <property name="text">
+              <string>Chan 4</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="7">
+            <widget class="QCheckBox" name="checkChan5">
+             <property name="text">
+              <string>Chan 5</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="7">
+            <widget class="QCheckBox" name="checkChan6">
+             <property name="text">
+              <string>Chan 6</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="7">
+            <widget class="QCheckBox" name="checkChan7">
+             <property name="text">
+              <string>Chan 7</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="7">
+            <widget class="QCheckBox" name="checkChan8">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Chan 8</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="8">
+            <widget class="QCheckBox" name="checkChan9">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Chan 9</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="8">
+            <widget class="QCheckBox" name="checkChan10">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Chan 10</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="8">
+            <widget class="QCheckBox" name="checkChan11">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Chan 11</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="8">
+            <widget class="QCheckBox" name="checkChan12">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>Chan 12</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Serial">
+       <attribute name="title">
+        <string>Serial</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_55">
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="serialGrid"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="EngineTest">
+       <attribute name="title">
+        <string>I2C</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_82">
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="i2cGrid"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>730</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuConnect">
+    <property name="title">
+     <string>Connect</string>
+    </property>
+    <addaction name="actionConnect_osiFC"/>
+    <addaction name="actionDisconnect_osiFC"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionCleanSerialOutput"/>
+   </widget>
+   <widget class="QMenu" name="mapproviderGroup">
+    <property name="title">
+     <string>Maps Select</string>
+    </property>
+    <addaction name="osmAction"/>
+    <addaction name="yahooActionMap"/>
+    <addaction name="yahooActionSatellite"/>
+   </widget>
+   <addaction name="menuConnect"/>
+   <addaction name="menuEdit"/>
+   <addaction name="mapproviderGroup"/>
+  </widget>
+  <action name="actionConnect_osiFC">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Connect osiFC</string>
+   </property>
+  </action>
+  <action name="actionDisconnect_osiFC">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disconnect osiFC</string>
+   </property>
+  </action>
+  <action name="actionCleanSerialOutput">
+   <property name="text">
+    <string>cleanSerialOutput</string>
+   </property>
+  </action>
+  <action name="osmAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>open street maps</string>
+   </property>
+  </action>
+  <action name="yahooActionMap">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>yahoo maps</string>
+   </property>
+  </action>
+  <action name="yahooActionSatellite">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>yahoo sattelite</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QwtPlot</class>
+   <extends>QFrame</extends>
+   <header>qwt_plot.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QwtSlider</class>
+   <extends>QWidget</extends>
+   <header>qwt_slider.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
