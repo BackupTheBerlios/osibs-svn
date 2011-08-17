@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wdg_i2ctab.ui'
 **
-** Created: Mon 10. Jan 18:56:36 2011
+** Created: Tue 16. Aug 21:16:32 2011
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -192,8 +192,9 @@ public:
         freeEngineNumber = new QSpinBox(groupBox_38);
         freeEngineNumber->setObjectName(QString::fromUtf8("freeEngineNumber"));
         freeEngineNumber->setGeometry(QRect(50, 340, 33, 21));
-        freeEngineNumber->setMinimum(1);
+        freeEngineNumber->setMinimum(9);
         freeEngineNumber->setMaximum(24);
+        freeEngineNumber->setValue(9);
         label_210 = new QLabel(tab_3);
         label_210->setObjectName(QString::fromUtf8("label_210"));
         label_210->setGeometry(QRect(10, 10, 35, 21));
@@ -394,11 +395,25 @@ public:
         label_201->setText(QApplication::translate("wdg_i2ctab", "I2C Desitantion", 0, QApplication::UnicodeUTF8));
         updateYGE->setText(QApplication::translate("wdg_i2ctab", "Update YGE", 0, QApplication::UnicodeUTF8));
         serialOut2->setTitle(QApplication::translate("wdg_i2ctab", "Serial Output", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        serialRaw_2->setToolTip(QApplication::translate("wdg_i2ctab", "This page is for debuging and enabling the YGE I2C controllers.\n"
+"They are quite tricky to get them working. \n"
+"I suggest to rethink using them ;)", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         startYGE->setText(QApplication::translate("wdg_i2ctab", "Startup YGE", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("wdg_i2ctab", "Setup YGE", 0, QApplication::UnicodeUTF8));
         startAll->setText(QApplication::translate("wdg_i2ctab", "Start All", 0, QApplication::UnicodeUTF8));
-        groupBox_38->setTitle(QApplication::translate("wdg_i2ctab", "n Engines", 0, QApplication::UnicodeUTF8));
+        groupBox_38->setTitle(QApplication::translate("wdg_i2ctab", ">8 Engines", 0, QApplication::UnicodeUTF8));
         label_209->setText(QApplication::translate("wdg_i2ctab", "Engine", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        freeEngineNumber->setToolTip(QApplication::translate("wdg_i2ctab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Use this if you have more then 8 Engines.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">You can here start engines with the number up to 24.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Send me a picture of your flyer if you ever use 24 =D</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_210->setText(QApplication::translate("wdg_i2ctab", "Engine", 0, QApplication::UnicodeUTF8));
         stopAll->setText(QApplication::translate("wdg_i2ctab", "Stop", 0, QApplication::UnicodeUTF8));
         testEngineNumber->clear();
@@ -412,6 +427,9 @@ public:
          << QApplication::translate("wdg_i2ctab", "7", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("wdg_i2ctab", "8", 0, QApplication::UnicodeUTF8)
         );
+#ifndef QT_NO_TOOLTIP
+        startEngine->setToolTip(QApplication::translate("wdg_i2ctab", "To start single engines. Its mainly for Engine Testing. On this screen it does not matter which controller you use.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         startEngine->setText(QApplication::translate("wdg_i2ctab", "Start Engine", 0, QApplication::UnicodeUTF8));
         groupBox_37->setTitle(QApplication::translate("wdg_i2ctab", "8 Engines", 0, QApplication::UnicodeUTF8));
         label_205->setText(QApplication::translate("wdg_i2ctab", "Engine 1", 0, QApplication::UnicodeUTF8));

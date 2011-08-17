@@ -10,6 +10,7 @@
 #include <QProcess>
 #include <QWidget>
 
+#include "settings.h"
 
 #include "qwt_dial.h"
 #include "attitude_indicator.h"
@@ -27,7 +28,7 @@
 #include "SerialPort/cConnection.h"
 #include "cSerialParser.h"
 #include "cWayPoints.h"
-#include "settings.h"
+
 
 #include "ui_basestation.h"
 #include "QMapControl/qmapcontrol.h"
@@ -40,22 +41,18 @@
 using namespace qmapcontrol;
 
 
-//namespace Ui {
-    //class baseStation;
-//    class baseStation: public Ui_baseStation {};
-//}
-
-//class baseStation : public QMainWindow {
-
 class baseStation : public QMainWindow , public Ui::baseStation
 {
     Q_OBJECT
 public:
-   //baseStation(QWidget *parent = 0);
-    baseStation();
 
+    baseStation();
     ~baseStation();
-    //Ui::baseStation *ui;
+
+    wdg_settingsTab     *wdgSettingsTab;
+    wdg_serialtab       *wdgserialtab;
+    wdg_i2ctab          *wdgi2ctab;
+
 
 protected:
 
@@ -68,27 +65,21 @@ protected:
     void init_Diagnostics();
     void init_Maps();
     void initConnection();
-    void setRCSettings(SETTINGS s_settings);
-    void setComponents(SETTINGS s_settings);
-    void setPIDXaxis(SETTINGS s_settings);
-    void setPIDYaxis(SETTINGS s_settings);
-    void setPIDPitch(SETTINGS s_settings);
-    void setPID(SETTINGS s_settings);
-    void setPDXaxis(SETTINGS s_settings);
-    void setPDYaxis(SETTINGS s_settings);
-    void setPD(SETTINGS s_settings);
-    void setPDPitch(SETTINGS s_settings);
-    void setHMC5843Settings(SETTINGS s_settings);
-    void setSystem(SETTINGS s_settings);
-    void setUserSetings(SETTINGS s_settings);
     void setTelemetrie(TELEMETRIE_0 S_TELE);
+
+
+    void updatePlot(TELEMETRIE_0 S_TELE);
     void setSettings(SETTINGS s_settings);
     void getSetupString();
-    void updatePlot(TELEMETRIE_0 S_TELE);
-
-
 
 private:
+
+
+    #define CMD_READ_CALIB_COMPASS 6
+    #define CMD_WRITE_CALIB_COMPASS 7
+    #define CMD_START_CALIB_COMPASS 8
+    #define CMD_STOP_CALIB_COMPASS 9
+
 
     int NextPlot;
     MapAdapter*         mapAdapter;
@@ -99,52 +90,75 @@ private:
     cConnection         *o_Connection;
     cSerialParser       *o_cSerialParser;
     cWayPoints          *o_cWayPoints;
-    cIniFile            *o_cIniFile;
 
-    wdg_settingsTab     *wdgSettingsTab;
-    wdg_serialtab       *wdgserialtab;
-    wdg_i2ctab          *wdgi2ctab;
+
+    c_settings          *o_cSettings;
 
     AttitudeIndicator   *Attitude;
     SpeedoMeter         *SpeedMeter;
 
+    //c_settings          *csettings;
 
-
-    SETTINGS            transferSettings;
-    SETTINGS            writeSettings;
-
+    void setRCSettings(SETTINGS);
+    void setComponents(SETTINGS);
+    void setPIDXaxis(SETTINGS);
+    void setPIDYaxis(SETTINGS);
+    void setPIDPitch(SETTINGS);
+    void setPID(SETTINGS);
+    /*
+    void setPDXaxis(SETTINGS);
+    void setPDYaxis(SETTINGS);
+    void setPD(SETTINGS);
+    void setPDPitch(SETTINGS);
+    */
+    void setHMC5843Settings(SETTINGS);
+    void setSystem(SETTINGS);
+    void setUserSetings(SETTINGS);
+    void compassCalib(int);
+    void setCompass(COMPASS_CALIB_DATA);
 private slots:
 
 
     void slot_Click(const QMouseEvent* Event, const QPointF Coord);
 
 
-    void slot_osmAction();
-    void slot_yahooActionMap();
-    void slot_yahooActionSatellite();
+    void slot_osmAction(void);
+    void slot_yahooActionMap(void);
+    void slot_yahooActionSatellite(void);
 
-    void slot_updatePIDSimple();
-    void slot_convertPIDSimple();
-    void slot_cleanOutput();
-    void slot_startEngine();
-    void slot_startAll();
-    void slot_stopAll();
-    void slot_resetDevice();
-    void slot_readSetting();
-    void slot_writeSetting();
-    void slot_flashSetting();
-    void slot_requestDebug();
-    void slot_startYGE();
-    void slot_updateYGE();
-    void slot_connectDevice();
-    void slot_disConnectDevice();
-    void slot_updateAdcRate();
-    void slot_readSetHdd();
-    void slot_writeSetHdd();
 
-    void slot_init_Diagnostics();
+    void slot_cleanOutput(void);
+    void slot_startEngine(void);
+    void slot_startAll(void);
+    void slot_stopAll(void);
+    void slot_resetDevice(void);
+
+    void slot_startCalib(void);
+    void slot_stopCalib(void);
+
+    void slot_readCompassValues(void);
+    void slot_writeCompassValues(void);
+
+
+    void slot_requestDebug(void);
+    void slot_startYGE(void);
+    void slot_updateYGE(void);
+    void slot_connectDevice(void);
+    void slot_disConnectDevice(void);
+    void slot_updateAdcRate(void);
+    void slot_readSetting(void);
+    void slot_flashSetting(void);
+
+    void slot_init_Diagnostics(void);
 
     void slot_showTerminal(int Typ, QString Text);
+
+    void slot_updatePIDSimple(void);
+    void slot_convertPIDSimple(void);
+    void slot_writeSetting(void);
+    void slot_readSetHdd(void);
+    void slot_writeSetHdd(void);
+
 
  signals:
 

@@ -1,8 +1,12 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 #include <QString>
+#include <QWidget>
+#include "qsettings.h"
 
-struct SETTINGS {
+#include "cIniFile.h"
+
+ struct SETTINGS {
         QString settingNum;
         QString pid_X_GyroACCFactMin;
         QString pid_X_GyroACCFactMax;
@@ -39,7 +43,8 @@ struct SETTINGS {
         QString pid_PitchGyroBias;
         QString pid_PitchGyroBiasNeg;
         QString pid_GyroPitchFact;
-        QString pid_StickFact;
+        QString pid_NickStickFact;
+        QString pid_RollStickFact;
         QString pid_PitchStickFact;
         QString pid_throttleOffset;
         QString pid_PitchThrottleFact;
@@ -48,22 +53,8 @@ struct SETTINGS {
         QString pid_PitchD;
         QString pid_Pitch_IntegralMax;
         QString pid_Pitch_IntegralMin;
-        QString pd_throttleOffset;
-        QString pd_X_P_Fact;
-        QString pd_X_D_Fact;
-        QString pd_Y_P_Fact;
-        QString pd_Y_D_Fact;
-        QString pd_X_AccX_Fact;
-        QString pd_Y_AccY_Fact;
-        QString pd_X_GyroSumFact;
-        QString pd_X_PitchSumFact;
-        QString pd_Y_GyroSumFact;
-        QString pd_Y_PitchSumFact;
-        QString pd_PitchP;
-        QString pd_PitchD;
-        QString pd_GyroPitchFact;
-        QString pd_StickFact;
-        QString pd_PitchStickFact;
+        int pid_HeadingHold;
+
         int barOn;
         int barChan;
         QString baroOffset;
@@ -85,13 +76,12 @@ struct SETTINGS {
         QString rollServoMax;
         QString sysGasMin;
         QString sysGasMax;
-        QString sysRcGasMax;
         QString sysLowVoltage;
         QString sysEmergencyGas;
         QString sysEmergencyGasDuration;
         int calcMode;
         int sysMainDirection;
-        QString escType;
+        int escType;
         QString escMax;
         QString escBaseAdr;
         QString escAdrHop;
@@ -100,7 +90,8 @@ struct SETTINGS {
         QString componentCycle;
         QString AdcClockDiv;
         QString chan[12];
-        int PWMMode;
+        int ReceiverType;
+        int PPMMode;
         int BTMode;
         int ADCModeNick;
         int ADCModeRoll;
@@ -128,6 +119,30 @@ struct SETTINGS {
         QString userPoti[21];
 };
 
+
+
+class c_settings
+{
+public:
+    c_settings();
+    ~c_settings();
+
+    SETTINGS            transferSettings;
+    SETTINGS            writeSettings;
+
+    void do_storeSettings(int num, SETTINGS setup);
+    void do_writeSettings(int num, SETTINGS setup);
+    SETTINGS readSettings(int num);
+
+
+
+
+protected:
+
+
+private:
+    QSettings inifile;
+};
 
 
 

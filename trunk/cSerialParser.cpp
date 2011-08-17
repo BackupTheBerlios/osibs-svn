@@ -1,10 +1,12 @@
 #include "cSerialParser.h"
 #include <QDialog>
 #include "ToolBox.h"
-
+#include "settings.h"
 
 TELEMETRIE_0 S_TELE;
-SETTINGS S_TRANSET;
+COMPASS_CALIB_DATA CALIB;
+
+
 MESSAGE_DATA S_MESSAGE;
 
 int lengthSettings = 124;
@@ -93,15 +95,10 @@ QByteArray cSerialParser::getstartYGERequest(int target)
     return CMD;
 }
 
-//#include "ToolBox.h";
-
 QByteArray cSerialParser::getSettingsOutput(SETTINGS transferSettings)
 {
 
     QByteArray tx_data;
-    //QString len = "118";
-
-    int i=0;
 
     tx_data.append(transferSettings.settingNum);
     tx_data.append(transferSettings.pid_X_GyroACCFactMin);
@@ -139,7 +136,9 @@ QByteArray cSerialParser::getSettingsOutput(SETTINGS transferSettings)
     tx_data.append(transferSettings.pid_PitchGyroBias);
     tx_data.append(transferSettings.pid_PitchGyroBiasNeg);
     tx_data.append(transferSettings.pid_GyroPitchFact);
-    tx_data.append(transferSettings.pid_StickFact);
+    tx_data.append(transferSettings.pid_NickStickFact);
+    tx_data.append(transferSettings.pid_RollStickFact);
+    tx_data.append(transferSettings.pid_HeadingHold);
     tx_data.append(transferSettings.pid_PitchStickFact);
     tx_data.append(transferSettings.pid_throttleOffset);
     tx_data.append(transferSettings.pid_PitchThrottleFact);
@@ -148,23 +147,6 @@ QByteArray cSerialParser::getSettingsOutput(SETTINGS transferSettings)
     tx_data.append(transferSettings.pid_PitchD);
     tx_data.append(transferSettings.pid_Pitch_IntegralMax);
     tx_data.append(transferSettings.pid_Pitch_IntegralMin);
-
-    tx_data.append(transferSettings.pd_throttleOffset);
-    tx_data.append(transferSettings.pd_X_P_Fact);
-    tx_data.append(transferSettings.pd_X_D_Fact);
-    tx_data.append(transferSettings.pd_Y_P_Fact);
-    tx_data.append(transferSettings.pd_Y_D_Fact);
-    tx_data.append(transferSettings.pd_X_AccX_Fact);
-    tx_data.append(transferSettings.pd_Y_AccY_Fact);
-    tx_data.append(transferSettings.pd_X_GyroSumFact);
-    tx_data.append(transferSettings.pd_X_PitchSumFact);
-    tx_data.append(transferSettings.pd_Y_GyroSumFact);
-    tx_data.append(transferSettings.pd_Y_PitchSumFact);
-    tx_data.append(transferSettings.pd_PitchP);
-    tx_data.append(transferSettings.pd_PitchD);
-    tx_data.append(transferSettings.pd_GyroPitchFact);
-    tx_data.append(transferSettings.pd_StickFact);
-    tx_data.append(transferSettings.pd_PitchStickFact);
 
     tx_data.append(transferSettings.barOn);
     tx_data.append(transferSettings.barChan);
@@ -176,6 +158,7 @@ QByteArray cSerialParser::getSettingsOutput(SETTINGS transferSettings)
     tx_data.append(transferSettings.compassType);
 
     tx_data.append(transferSettings.gpsOn);
+
     tx_data.append(transferSettings.nickServoOn);
     tx_data.append(transferSettings.nickServoChan);
     tx_data.append(transferSettings.nickServoInvert);
@@ -190,30 +173,38 @@ QByteArray cSerialParser::getSettingsOutput(SETTINGS transferSettings)
     tx_data.append(transferSettings.rollServoForce);
     tx_data.append(transferSettings.rollServoMin);
     tx_data.append(transferSettings.rollServoMax);
+
     tx_data.append(transferSettings.sysGasMin);
     tx_data.append(transferSettings.sysGasMax);
-    tx_data.append(transferSettings.sysRcGasMax);
+
     tx_data.append(transferSettings.sysLowVoltage);
     tx_data.append(transferSettings.sysEmergencyGas);
     tx_data.append(transferSettings.sysEmergencyGasDuration);
+
     tx_data.append(transferSettings.calcMode);
     tx_data.append(transferSettings.sysMainDirection);
+
     tx_data.append(transferSettings.escType);
     tx_data.append(transferSettings.escMax);
     tx_data.append(transferSettings.escBaseAdr);
     tx_data.append(transferSettings.escAdrHop);
+
     tx_data.append(transferSettings.calcCycle);
     tx_data.append(transferSettings.telemetrieCycle);
     tx_data.append(transferSettings.componentCycle);
-    tx_data.append(transferSettings.AdcClockDiv);    
-    tx_data.append(transferSettings.PWMMode);
+    tx_data.append(transferSettings.AdcClockDiv);
+
+    tx_data.append(transferSettings.ReceiverType);
+    tx_data.append(transferSettings.PPMMode);
     tx_data.append(transferSettings.BTMode);
+
     tx_data.append(transferSettings.ADCModeNick);
     tx_data.append(transferSettings.ADCModeRoll);
     tx_data.append(transferSettings.ADCModePitch);
     tx_data.append(transferSettings.ADCDriftNick);
     tx_data.append(transferSettings.ADCDriftRoll);
     tx_data.append(transferSettings.ADCDriftPitch);
+
     tx_data.append(transferSettings.MaxValue);
     tx_data.append(transferSettings.MinValue);
     tx_data.append(transferSettings.MaxMultichannel);
@@ -326,6 +317,13 @@ int cSerialParser::Parser(QString text)
     int tmp = rx.indexIn(text);
     QString check = rx.cap(1);
 
+    if (check == "m0")
+    {
+        text = QString("\n"+rx.cap(2));
+        S_MESSAGE.message = text;
+        status = RX_MESSAGE;
+    }
+
     if (check == "t0")
     {
         text = QString(rx.cap(2))+"#";
@@ -340,25 +338,51 @@ int cSerialParser::Parser(QString text)
         status = RX_SETTINGS;
     }
 
-    if (check == "m0")
+    if (check == "c0")
     {
-        text = QString("\n"+rx.cap(2));
-        S_MESSAGE.message = text;
-        status = RX_MESSAGE;
+        text = QString(rx.cap(2))+"#";
+        cSerialParser::c0Parser(text);
+        status = RX_COMPASS_CALIB;
     }
+    tmp = 0;
 
-
-    /*  QRegExp rx(QString("\.\.(.*)\.\."));
-
-    rx.setCaseSensitivity(Qt::CaseSensitive);
-    rx.setMinimal(false);
-    rx.setPatternSyntax(QRegExp::PatternSyntax(QRegExp::RegExp2));
-
-    int tmp = rx.indexIn(text);
-    QString check = rx.cap(1);
-    */
-    //rx.~QRegExp();
     return status;
+}
+void cSerialParser::c0Parser(QString text)
+{
+    o_cLogFile->writeLog(text);
+    status = 0;
+
+
+    QRegExp regEx(QString("(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*)#"));
+
+    regEx.setCaseSensitivity(Qt::CaseSensitive);
+    regEx.setMinimal(true);
+    regEx.setPatternSyntax(QRegExp::PatternSyntax(QRegExp::RegExp2));
+    int tmp = regEx.indexIn(text);
+    QString check = regEx.cap(0);
+    int i = 1;
+CALIB.X_MIN = "100";
+    if (regEx.numCaptures() == 12) {
+        CALIB.X_MIN          			=   regEx.cap(i++);
+        CALIB.X_MAX          			=   regEx.cap(i++);
+        CALIB.X_RANGE          			=   regEx.cap(i++);
+        CALIB.X_OFFSET         			=   regEx.cap(i++);
+        CALIB.Y_MIN          			=   regEx.cap(i++);
+        CALIB.Y_MAX          			=   regEx.cap(i++);
+        CALIB.Y_RANGE          			=   regEx.cap(i++);
+        CALIB.Y_OFFSET         			=   regEx.cap(i++);
+        CALIB.Z_MIN          			=   regEx.cap(i++);
+        CALIB.Z_MAX          			=   regEx.cap(i++);
+        CALIB.Z_RANGE          			=   regEx.cap(i++);
+        CALIB.Z_OFFSET         			=   regEx.cap(i++);
+
+        status = 1;
+    }
+    tmp = 0;
+
+    //CALIB.X_MAX = "100";
+
 }
 
 void cSerialParser::t0Parser(QString text2)
@@ -368,8 +392,6 @@ void cSerialParser::t0Parser(QString text2)
 
     status = 0;
 
-    //QRegExp regEx(QString("([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*);([0-9]*)#"));
-    //QRegExp regEx(QString("(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*);(*)#"));
     QRegExp regEx(QString("(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*)#"));
 
     regEx.setCaseSensitivity(Qt::CaseSensitive);
@@ -398,7 +420,7 @@ void cSerialParser::t0Parser(QString text2)
         S_TELE.heading          			=   regEx.cap(i++);
         S_TELE.MM3_X_axis       			=   regEx.cap(i++);
         S_TELE.MM3_Y_axis       			=   regEx.cap(i++);
-        S_TELE.MM3_z_axis       			=   regEx.cap(i++);
+        S_TELE.MM3_Z_axis       			=   regEx.cap(i++);
         S_TELE.PWM_channel_0    			=   regEx.cap(i++);
         S_TELE.PWM_channel_1    			=   regEx.cap(i++);
         S_TELE.PWM_channel_2    			=   regEx.cap(i++);
@@ -409,20 +431,16 @@ void cSerialParser::t0Parser(QString text2)
 
         status = 1;
     }
+    tmp = 0;
 }
 
-int cSerialParser::getStatus()
-{
-    return status;
-}
 
 
 void cSerialParser::s0Parser(QString text)
 {
    status = 0;
 
-   //QRegExp regEx(QString("(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*)"));
-   QRegExp regEx(QString("(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*)"));
+   QRegExp regEx(QString("(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*);(.*)"));
 
     regEx.setCaseSensitivity(Qt::CaseSensitive);
     regEx.setMinimal(false);
@@ -434,7 +452,7 @@ void cSerialParser::s0Parser(QString text)
 
     if (check.length() > 0) {
 
-
+        S_TRANSET.settingNum            		=  regEx.cap(i++);
         S_TRANSET.barOn                 		=  regEx.cap(i++).toInt();
         S_TRANSET.barChan                 		=  regEx.cap(i++).toInt();
         S_TRANSET.baroOffset                 		=  regEx.cap(i++);
@@ -459,16 +477,14 @@ void cSerialParser::s0Parser(QString text)
         S_TRANSET.rollServoMax           		=  regEx.cap(i++);
         S_TRANSET.pid_PitchStickFact    		=  regEx.cap(i++);
         S_TRANSET.pid_throttleOffset    		=  regEx.cap(i++);
-        S_TRANSET.pd_PitchStickFact     		=  regEx.cap(i++);
-        S_TRANSET.pd_throttleOffset     		=  regEx.cap(i++);
         S_TRANSET.sysGasMin             		=  regEx.cap(i++);
-        S_TRANSET.sysRcGasMax           		=  regEx.cap(i++);
         S_TRANSET.sysEmergencyGas       		=  regEx.cap(i++);
         S_TRANSET.sysEmergencyGasDuration               =  regEx.cap(i++);
         S_TRANSET.sysLowVoltage         		=  regEx.cap(i++);
         S_TRANSET.sysMainDirection      		=  regEx.cap(i++).toInt();
         S_TRANSET.sysGasMax             		=  regEx.cap(i++);
-        S_TRANSET.PWMMode               		=  regEx.cap(i++).toInt();
+        S_TRANSET.ReceiverType               		=  regEx.cap(i++).toInt();
+        S_TRANSET.PPMMode               		=  regEx.cap(i++).toInt();
         S_TRANSET.BTMode                 		=  regEx.cap(i++).toInt();
         S_TRANSET.ADCModeNick               		=  regEx.cap(i++).toInt();
         S_TRANSET.ADCModeRoll               		=  regEx.cap(i++).toInt();
@@ -502,27 +518,15 @@ void cSerialParser::s0Parser(QString text)
         S_TRANSET.pid_Y_gyroBias        		=  regEx.cap(i++);
         S_TRANSET.pid_Y_gyroBiasNeg        		=  regEx.cap(i++);
         S_TRANSET.pid_GyroPitchFact     		=  regEx.cap(i++);
-        S_TRANSET.pid_StickFact         		=  regEx.cap(i++);
+        S_TRANSET.pid_NickStickFact         		=  regEx.cap(i++);
+        S_TRANSET.pid_RollStickFact         		=  regEx.cap(i++);
+        S_TRANSET.pid_HeadingHold         		=  regEx.cap(i++).toInt();
         S_TRANSET.pid_PitchP            		=  regEx.cap(i++);
         S_TRANSET.pid_PitchI            		=  regEx.cap(i++);
         S_TRANSET.pid_PitchD            		=  regEx.cap(i++);
         S_TRANSET.pid_PitchGyroBias     		=  regEx.cap(i++);
         S_TRANSET.pid_PitchGyroBiasNeg     		=  regEx.cap(i++);
-        S_TRANSET.pd_X_P_Fact           		=  regEx.cap(i++);
-        S_TRANSET.pd_X_D_Fact           		=  regEx.cap(i++);
-        S_TRANSET.pd_Y_P_Fact           		=  regEx.cap(i++);
-        S_TRANSET.pd_Y_D_Fact           		=  regEx.cap(i++);
-        S_TRANSET.pd_PitchP             		=  regEx.cap(i++);
-        S_TRANSET.pd_PitchD             		=  regEx.cap(i++);
-        S_TRANSET.pd_X_AccX_Fact        		=  regEx.cap(i++);
-        S_TRANSET.pd_Y_AccY_Fact        		=  regEx.cap(i++);
-        S_TRANSET.pd_X_GyroSumFact      		=  regEx.cap(i++);
-        S_TRANSET.pd_X_PitchSumFact     		=  regEx.cap(i++);
-        S_TRANSET.pd_Y_GyroSumFact      		=  regEx.cap(i++);
-        S_TRANSET.pd_Y_PitchSumFact     		=  regEx.cap(i++);
-        S_TRANSET.pd_GyroPitchFact      		=  regEx.cap(i++);
-        S_TRANSET.pd_StickFact          		=  regEx.cap(i++);
-        S_TRANSET.settingNum            		=  regEx.cap(i++);
+        S_TRANSET.pid_PitchThrottleFact     		=  regEx.cap(i++);
         S_TRANSET.pid_X_GyroACCFactMin  		=  regEx.cap(i++);
         S_TRANSET.pid_X_GyroACCFactMax  		=  regEx.cap(i++);
         S_TRANSET.pid_X_IntegralMin     		=  regEx.cap(i++);
@@ -533,7 +537,7 @@ void cSerialParser::s0Parser(QString text)
         S_TRANSET.pid_Y_IntegralMax     		=  regEx.cap(i++);
         S_TRANSET.pid_Pitch_IntegralMin 		=  regEx.cap(i++);
         S_TRANSET.pid_Pitch_IntegralMax 		=  regEx.cap(i++);
-        S_TRANSET.escType               		=  regEx.cap(i++);
+        S_TRANSET.escType               		=  regEx.cap(i++).toInt();
         S_TRANSET.escMax                		=  regEx.cap(i++);
         S_TRANSET.escBaseAdr            		=  regEx.cap(i++);
         S_TRANSET.escAdrHop             		=  regEx.cap(i++);
@@ -601,12 +605,15 @@ void cSerialParser::s0Parser(QString text)
         S_TRANSET.userSetting[19]       		=  regEx.cap(i++);
         S_TRANSET.userSetting[20]       		=  regEx.cap(i++);
 
-
-        o_cIniFile->storeSettings(S_TRANSET.settingNum.toInt(), S_TRANSET);
-
-
         status = 1;
     }
+    tmp = 0;
+
+}
+
+int cSerialParser::getStatus()
+{
+    return status;
 }
 
 QString cSerialParser::getMessage()
@@ -624,4 +631,8 @@ SETTINGS cSerialParser::getSetting()
     return S_TRANSET;
 }
 
+COMPASS_CALIB_DATA cSerialParser::getCalib()
+{
+    return CALIB;
+}
 

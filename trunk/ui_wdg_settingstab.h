@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'wdg_settingstab.ui'
 **
-** Created: Mon 10. Jan 18:56:36 2011
+** Created: Wed 17. Aug 20:56:56 2011
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,10 +16,13 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QCheckBox>
 #include <QtGui/QComboBox>
+#include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QGroupBox>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QSpinBox>
@@ -62,11 +65,11 @@ public:
     QLabel *label_4;
     QSpinBox *ESCMax;
     QLabel *label_8;
-    QSpinBox *ESCType;
     QLabel *label_6;
     QSpinBox *ESCBaseAddress;
     QLabel *label_7;
     QSpinBox *ESCAddressHop;
+    QComboBox *ESCType;
     QGroupBox *miscSetup;
     QGridLayout *gridLayout_44;
     QLabel *label_17;
@@ -77,13 +80,8 @@ public:
     QComboBox *mainDirection;
     QSpacerItem *verticalSpacer_31;
     QSpacerItem *verticalSpacer_6;
-    QGroupBox *groupBox_16;
-    QGridLayout *gridLayout_64;
-    QLabel *label_226;
-    QSpinBox *AdcRate;
-    QPushButton *updateAdcRate;
     QGroupBox *groupBox;
-    QVBoxLayout *verticalLayout_11;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label_250;
     QComboBox *BTMode;
     QWidget *RCSetup;
@@ -130,10 +128,6 @@ public:
     QSpinBox *PPMMin;
     QLabel *label_42;
     QSpinBox *multiChannelMax;
-    QGroupBox *groupBox_2;
-    QGridLayout *gridLayout_32;
-    QLabel *label_217;
-    QSpinBox *RCTrottleMax;
     QSpacerItem *horizontalSpacer_11;
     QSpacerItem *verticalSpacer_32;
     QGroupBox *RCOffsetSetup;
@@ -158,6 +152,10 @@ public:
     QSpinBox *chanOff9;
     QLabel *label_63;
     QSpinBox *PPMOffset;
+    QGroupBox *ReceiverTypeBox;
+    QGridLayout *gridLayout_4;
+    QLabel *label_153;
+    QComboBox *ReceiverType;
     QWidget *PPM;
     QGridLayout *gridLayout_51;
     QTabWidget *tabWidget_2;
@@ -235,7 +233,6 @@ public:
     QGridLayout *gridLayout_57;
     QLabel *label_50;
     QLabel *label_54;
-    QSpinBox *GPSMode;
     QLabel *label_52;
     QSpinBox *GPSForce;
     QLabel *label_53;
@@ -243,6 +240,7 @@ public:
     QLabel *label_55;
     QSpinBox *GPSStickOferride;
     QComboBox *enableGPS;
+    QComboBox *comboBox;
     QGroupBox *GyroSetup;
     QGridLayout *gridLayout_59;
     QComboBox *GyroModeNick;
@@ -285,12 +283,60 @@ public:
     QLabel *label_257;
     QSpacerItem *verticalSpacer_20;
     QSpacerItem *horizontalSpacer_10;
+    QGroupBox *groupBox_16;
+    QGridLayout *gridLayout_64;
+    QLabel *label_226;
+    QSpinBox *AdcRate;
+    QPushButton *updateAdcRate;
+    QSpacerItem *verticalSpacer_4;
     QWidget *Navi;
     QGridLayout *gridLayout_85;
     QTabWidget *tabWidget_3;
     QWidget *Compass_Setup;
     QGridLayout *gridLayout_86;
     QTabWidget *tabWidget_4;
+    QWidget *MM3;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QFrame *frame;
+    QGroupBox *groupBox_4;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *startCalib;
+    QPushButton *stopCalib;
+    QGroupBox *groupBox_5;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *readCompassValues;
+    QPushButton *writeCompassValues;
+    QGroupBox *groupBox_3;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
+    QLineEdit *X_MIN;
+    QLineEdit *Y_MIN;
+    QLineEdit *Z_MIN;
+    QLabel *label_36;
+    QLabel *label_37;
+    QLabel *label_38;
+    QLineEdit *X_MAX;
+    QLineEdit *X_RANGE;
+    QLineEdit *X_OFFSET;
+    QLabel *label_199;
+    QLabel *label_200;
+    QLabel *label_201;
+    QLineEdit *Y_MAX;
+    QLineEdit *Z_MAX;
+    QLineEdit *Y_RANGE;
+    QLineEdit *Y_OFFSET;
+    QLineEdit *Z_OFFSET;
+    QLineEdit *Z_RANGE;
+    QLabel *label_202;
+    QLabel *label_203;
+    QLabel *label_204;
+    QLabel *label_205;
+    QLabel *label_206;
+    QLabel *label_207;
+    QSpacerItem *horizontalSpacer;
     QWidget *HMC5843;
     QGroupBox *groupBox_18;
     QGridLayout *gridLayout_87;
@@ -330,7 +376,8 @@ public:
     QSpinBox *PIDPitchGyroForce;
     QLabel *label_166;
     QSpinBox *PIDPitchThrottleOffset;
-    QSpacerItem *verticalSpacer_14;
+    QLabel *label_127;
+    QSpinBox *PIDPitchStickForce;
     QGroupBox *PIDRollSetup;
     QGridLayout *gridLayout_14;
     QLabel *label_262;
@@ -362,6 +409,8 @@ public:
     QSpinBox *PIDRollACCD;
     QSpinBox *PIDRollACCForce;
     QSpacerItem *verticalSpacer_12;
+    QLabel *RollStick;
+    QSpinBox *PIDRollStickForce;
     QSpacerItem *verticalSpacer_2;
     QGroupBox *PIDNickSetup;
     QGridLayout *gridLayout_15;
@@ -394,16 +443,16 @@ public:
     QLabel *label_114;
     QLabel *label_108;
     QSpacerItem *verticalSpacer_10;
+    QLabel *label_150;
+    QSpinBox *PIDNickStickForce;
+    QSpacerItem *horizontalSpacer_4;
     QGroupBox *PIDStickSetup;
     QGridLayout *gridLayout_16;
-    QLabel *label_126;
-    QSpinBox *PIDStickForce;
-    QLabel *label_127;
-    QSpinBox *PIDPitchStickForce;
     QLabel *label_125;
     QSpinBox *PIDThrottleOffset;
     QSpacerItem *verticalSpacer_13;
-    QSpacerItem *horizontalSpacer_4;
+    QLabel *label_126;
+    QComboBox *PIDHeadingHold;
     QWidget *PIDSimple;
     QGridLayout *gridLayout_36;
     QGroupBox *PIDsimpleSetup;
@@ -437,6 +486,8 @@ public:
     QSpinBox *PIDSimpleI;
     QLabel *label_134;
     QSpacerItem *verticalSpacer_8;
+    QLabel *label_151;
+    QSpinBox *PIDSimpleStickForce;
     QGroupBox *PIDSimplePitchSetup;
     QGridLayout *gridLayout_19;
     QLabel *label_220;
@@ -454,99 +505,19 @@ public:
     QLabel *label_146;
     QSpinBox *PIDSimplePitchThrottleOffset;
     QSpacerItem *verticalSpacer;
-    QGroupBox *PIDSimpleStickSetup;
-    QGridLayout *gridLayout_20;
-    QLabel *label_147;
-    QSpinBox *PIDSimpleStickForce;
     QLabel *label_148;
     QSpinBox *PIDSimplePitchStickForce;
+    QGroupBox *PIDSimpleStickSetup;
+    QGridLayout *gridLayout_20;
     QLabel *label_221;
     QSpinBox *PIDSimpleThrottleOffset;
     QSpacerItem *verticalSpacer_9;
-    QSpacerItem *verticalSpacer_5;
-    QPushButton *usePIDSimple;
-    QPushButton *readPID;
-    QWidget *PD;
-    QGridLayout *gridLayout_38;
-    QGroupBox *PDRollSetup;
-    QGridLayout *gridLayout_21;
-    QLabel *label_157;
-    QSpinBox *PDRollP;
-    QLabel *label_154;
-    QSpinBox *PDRollD;
-    QLabel *label_156;
-    QSpinBox *PDRollGyroForce;
-    QLabel *label_161;
-    QSpinBox *PDRollACCForce;
-    QLabel *label_158;
-    QSpinBox *PDRollPitchForce;
-    QSpacerItem *verticalSpacer_16;
-    QGroupBox *PDPitchSetup;
-    QGridLayout *gridLayout_24;
-    QLabel *label_150;
-    QSpinBox *PDPitchP;
-    QLabel *label_151;
-    QSpinBox *PDPitchD;
     QLabel *label_152;
-    QSpinBox *PDPitchGyroForce;
-    QLabel *label_165;
-    QSpinBox *PDPitchThrottleOffset;
-    QGroupBox *PDStickSetup;
-    QGridLayout *gridLayout_23;
-    QLabel *label_153;
-    QSpinBox *PDStickForce;
-    QLabel *label_164;
-    QSpinBox *PDPitchStick;
-    QLabel *label_216;
-    QSpinBox *PDThrottleOffset;
-    QSpacerItem *verticalSpacer_18;
-    QGroupBox *PDNickSetup;
-    QGridLayout *gridLayout_22;
-    QLabel *label_160;
-    QSpinBox *PDNickP;
-    QLabel *label_155;
-    QSpinBox *PDNickD;
-    QLabel *label_159;
-    QSpinBox *PDNickGyroForce;
-    QLabel *label_163;
-    QSpinBox *PDNickACCForce;
-    QLabel *label_162;
-    QSpinBox *PDNickPitchForce;
-    QSpacerItem *verticalSpacer_17;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *verticalSpacer_4;
-    QWidget *PDSimple;
-    QGridLayout *gridLayout_39;
-    QGroupBox *PDsimpleSetup;
-    QGridLayout *gridLayout_25;
-    QLabel *label_173;
-    QSpinBox *PDSimpleP;
-    QLabel *label_171;
-    QSpinBox *PDSimpleD;
-    QLabel *label_172;
-    QSpinBox *PDSimpleGyroForce;
-    QLabel *label_175;
-    QSpinBox *PDSimpleACCForce;
-    QLabel *label_174;
-    QSpinBox *PDSimplePitchForce;
-    QGroupBox *PDSimplePitchSetup;
-    QGridLayout *gridLayout_26;
-    QLabel *label_167;
-    QSpinBox *PDSimplePitch;
-    QLabel *label_168;
-    QSpinBox *PDSimplePitchD;
-    QLabel *label_169;
-    QSpinBox *PDSimplePitchGyroForce;
-    QLabel *label_170;
-    QSpinBox *PDSimplePitchThrottleOffset;
-    QGroupBox *PDSimpleStickSetup;
-    QGridLayout *gridLayout_27;
-    QLabel *label_176;
-    QSpinBox *PDSimpleStickForce;
-    QLabel *label_177;
-    QSpinBox *PDSimplePitchStickForce;
-    QSpacerItem *horizontalSpacer_6;
-    QSpacerItem *verticalSpacer_11;
+    QComboBox *PIDSimpleHeadingHold;
+    QSpacerItem *verticalSpacer_5;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *readPID;
+    QPushButton *usePIDSimple;
     QWidget *Kalman;
     QTextEdit *textEdit;
     QWidget *userSettings;
@@ -633,10 +604,10 @@ public:
     {
         if (wdg_settingsTab->objectName().isEmpty())
             wdg_settingsTab->setObjectName(QString::fromUtf8("wdg_settingsTab"));
-        wdg_settingsTab->resize(726, 406);
+        wdg_settingsTab->resize(732, 414);
         settingsTab = new QTabWidget(wdg_settingsTab);
         settingsTab->setObjectName(QString::fromUtf8("settingsTab"));
-        settingsTab->setGeometry(QRect(0, 0, 724, 401));
+        settingsTab->setGeometry(QRect(0, 0, 795, 430));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -671,7 +642,7 @@ public:
         sysGasMax->setObjectName(QString::fromUtf8("sysGasMax"));
         sysGasMax->setEnabled(true);
         sysGasMax->setMinimum(0);
-        sysGasMax->setMaximum(255);
+        sysGasMax->setMaximum(254);
         sysGasMax->setValue(160);
 
         gridLayout_42->addWidget(sysGasMax, 0, 1, 1, 1);
@@ -713,7 +684,7 @@ public:
         emgGasDur = new QSpinBox(gasSetup);
         emgGasDur->setObjectName(QString::fromUtf8("emgGasDur"));
         emgGasDur->setMinimum(0);
-        emgGasDur->setMaximum(255);
+        emgGasDur->setMaximum(254);
         emgGasDur->setValue(50);
 
         gridLayout_42->addWidget(emgGasDur, 3, 1, 1, 1);
@@ -805,6 +776,7 @@ public:
         ESCMax->setObjectName(QString::fromUtf8("ESCMax"));
         ESCMax->setAccelerated(false);
         ESCMax->setMinimum(3);
+        ESCMax->setMaximum(12);
         ESCMax->setValue(4);
 
         gridLayout_43->addWidget(ESCMax, 0, 1, 1, 1);
@@ -815,13 +787,6 @@ public:
 
         gridLayout_43->addWidget(label_8, 1, 0, 1, 1);
 
-        ESCType = new QSpinBox(ESCSetup);
-        ESCType->setObjectName(QString::fromUtf8("ESCType"));
-        ESCType->setMinimum(0);
-        ESCType->setMaximum(9);
-
-        gridLayout_43->addWidget(ESCType, 1, 1, 1, 1);
-
         label_6 = new QLabel(ESCSetup);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setFont(font);
@@ -831,7 +796,7 @@ public:
         ESCBaseAddress = new QSpinBox(ESCSetup);
         ESCBaseAddress->setObjectName(QString::fromUtf8("ESCBaseAddress"));
         ESCBaseAddress->setMinimum(0);
-        ESCBaseAddress->setMaximum(255);
+        ESCBaseAddress->setMaximum(254);
         ESCBaseAddress->setValue(82);
 
         gridLayout_43->addWidget(ESCBaseAddress, 2, 1, 1, 1);
@@ -848,6 +813,11 @@ public:
         ESCAddressHop->setValue(2);
 
         gridLayout_43->addWidget(ESCAddressHop, 3, 1, 1, 1);
+
+        ESCType = new QComboBox(ESCSetup);
+        ESCType->setObjectName(QString::fromUtf8("ESCType"));
+
+        gridLayout_43->addWidget(ESCType, 1, 1, 1, 1);
 
 
         gridLayout_2->addWidget(ESCSetup, 3, 0, 1, 1);
@@ -885,11 +855,13 @@ public:
 
         calcMode = new QComboBox(miscSetup);
         calcMode->setObjectName(QString::fromUtf8("calcMode"));
+        calcMode->setEnabled(false);
 
         gridLayout_44->addWidget(calcMode, 0, 1, 1, 1);
 
         mainDirection = new QComboBox(miscSetup);
         mainDirection->setObjectName(QString::fromUtf8("mainDirection"));
+        mainDirection->setEnabled(false);
         mainDirection->setMaximumSize(QSize(80, 16777215));
 
         gridLayout_44->addWidget(mainDirection, 2, 1, 1, 1);
@@ -905,51 +877,24 @@ public:
 
         gridLayout_2->addItem(verticalSpacer_6, 5, 2, 1, 1);
 
-        groupBox_16 = new QGroupBox(basicSettings);
-        groupBox_16->setObjectName(QString::fromUtf8("groupBox_16"));
-        gridLayout_64 = new QGridLayout(groupBox_16);
-        gridLayout_64->setObjectName(QString::fromUtf8("gridLayout_64"));
-        gridLayout_64->setContentsMargins(-1, 0, -1, -1);
-        label_226 = new QLabel(groupBox_16);
-        label_226->setObjectName(QString::fromUtf8("label_226"));
-        label_226->setFont(font);
-
-        gridLayout_64->addWidget(label_226, 0, 0, 1, 1);
-
-        AdcRate = new QSpinBox(groupBox_16);
-        AdcRate->setObjectName(QString::fromUtf8("AdcRate"));
-        AdcRate->setMinimum(0);
-        AdcRate->setMaximum(255);
-        AdcRate->setValue(120);
-
-        gridLayout_64->addWidget(AdcRate, 0, 1, 1, 1);
-
-        updateAdcRate = new QPushButton(groupBox_16);
-        updateAdcRate->setObjectName(QString::fromUtf8("updateAdcRate"));
-
-        gridLayout_64->addWidget(updateAdcRate, 1, 0, 1, 2);
-
-
-        gridLayout_2->addWidget(groupBox_16, 3, 2, 1, 1);
-
         groupBox = new QGroupBox(basicSettings);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setMinimumSize(QSize(113, 0));
         groupBox->setMaximumSize(QSize(16777215, 84));
-        verticalLayout_11 = new QVBoxLayout(groupBox);
-        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
-        verticalLayout_11->setContentsMargins(-1, 0, -1, -1);
+        horizontalLayout_2 = new QHBoxLayout(groupBox);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(-1, 0, -1, -1);
         label_250 = new QLabel(groupBox);
         label_250->setObjectName(QString::fromUtf8("label_250"));
 
-        verticalLayout_11->addWidget(label_250);
+        horizontalLayout_2->addWidget(label_250);
 
         BTMode = new QComboBox(groupBox);
         BTMode->setObjectName(QString::fromUtf8("BTMode"));
         BTMode->setMaxVisibleItems(4);
         BTMode->setMaxCount(4);
 
-        verticalLayout_11->addWidget(BTMode);
+        horizontalLayout_2->addWidget(BTMode);
 
 
         gridLayout_2->addWidget(groupBox, 0, 2, 1, 1);
@@ -1123,7 +1068,7 @@ public:
         gridLayout_28->addWidget(chanMux12, 11, 1, 1, 1);
 
 
-        gridLayout_46->addWidget(channelMux, 0, 1, 3, 2);
+        gridLayout_46->addWidget(channelMux, 0, 1, 4, 2);
 
         PPMSetup = new QGroupBox(RCSetup);
         PPMSetup->setObjectName(QString::fromUtf8("PPMSetup"));
@@ -1142,7 +1087,7 @@ public:
         gridLayout_30->addWidget(PPMMode, 0, 1, 1, 1);
 
 
-        gridLayout_46->addWidget(PPMSetup, 0, 3, 1, 1);
+        gridLayout_46->addWidget(PPMSetup, 1, 3, 1, 1);
 
         MultichannelSetup = new QGroupBox(RCSetup);
         MultichannelSetup->setObjectName(QString::fromUtf8("MultichannelSetup"));
@@ -1211,35 +1156,15 @@ public:
         gridLayout_31->addWidget(multiChannelMax, 0, 1, 1, 1);
 
 
-        gridLayout_46->addWidget(MultichannelSetup, 1, 3, 1, 1);
-
-        groupBox_2 = new QGroupBox(RCSetup);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        gridLayout_32 = new QGridLayout(groupBox_2);
-        gridLayout_32->setObjectName(QString::fromUtf8("gridLayout_32"));
-        gridLayout_32->setContentsMargins(-1, 0, -1, -1);
-        label_217 = new QLabel(groupBox_2);
-        label_217->setObjectName(QString::fromUtf8("label_217"));
-
-        gridLayout_32->addWidget(label_217, 0, 0, 1, 1);
-
-        RCTrottleMax = new QSpinBox(groupBox_2);
-        RCTrottleMax->setObjectName(QString::fromUtf8("RCTrottleMax"));
-        RCTrottleMax->setMaximum(250);
-        RCTrottleMax->setValue(25);
-
-        gridLayout_32->addWidget(RCTrottleMax, 0, 1, 1, 1);
-
-
-        gridLayout_46->addWidget(groupBox_2, 2, 3, 1, 1);
+        gridLayout_46->addWidget(MultichannelSetup, 2, 3, 1, 1);
 
         horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_46->addItem(horizontalSpacer_11, 1, 4, 1, 1);
+        gridLayout_46->addItem(horizontalSpacer_11, 2, 4, 1, 1);
 
         verticalSpacer_32 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_46->addItem(verticalSpacer_32, 3, 1, 1, 1);
+        gridLayout_46->addItem(verticalSpacer_32, 4, 1, 1, 1);
 
         RCOffsetSetup = new QGroupBox(RCSetup);
         RCOffsetSetup->setObjectName(QString::fromUtf8("RCOffsetSetup"));
@@ -1365,7 +1290,24 @@ public:
         gridLayout_29->addWidget(PPMOffset, 0, 1, 1, 1);
 
 
-        gridLayout_46->addWidget(RCOffsetSetup, 0, 0, 3, 1);
+        gridLayout_46->addWidget(RCOffsetSetup, 0, 0, 4, 1);
+
+        ReceiverTypeBox = new QGroupBox(RCSetup);
+        ReceiverTypeBox->setObjectName(QString::fromUtf8("ReceiverTypeBox"));
+        gridLayout_4 = new QGridLayout(ReceiverTypeBox);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        label_153 = new QLabel(ReceiverTypeBox);
+        label_153->setObjectName(QString::fromUtf8("label_153"));
+
+        gridLayout_4->addWidget(label_153, 1, 0, 1, 1);
+
+        ReceiverType = new QComboBox(ReceiverTypeBox);
+        ReceiverType->setObjectName(QString::fromUtf8("ReceiverType"));
+
+        gridLayout_4->addWidget(ReceiverType, 1, 1, 1, 1);
+
+
+        gridLayout_46->addWidget(ReceiverTypeBox, 0, 3, 1, 1);
 
         settingsTab->addTab(RCSetup, QString());
         PPM = new QWidget();
@@ -1735,11 +1677,6 @@ public:
 
         gridLayout_57->addWidget(label_54, 1, 0, 1, 1);
 
-        GPSMode = new QSpinBox(GPSSetup);
-        GPSMode->setObjectName(QString::fromUtf8("GPSMode"));
-
-        gridLayout_57->addWidget(GPSMode, 1, 1, 1, 1);
-
         label_52 = new QLabel(GPSSetup);
         label_52->setObjectName(QString::fromUtf8("label_52"));
 
@@ -1778,6 +1715,11 @@ public:
         enableGPS->setObjectName(QString::fromUtf8("enableGPS"));
 
         gridLayout_57->addWidget(enableGPS, 0, 1, 1, 1);
+
+        comboBox = new QComboBox(GPSSetup);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+
+        gridLayout_57->addWidget(comboBox, 1, 1, 1, 1);
 
 
         gridLayout_47->addWidget(GPSSetup, 0, 1, 2, 1);
@@ -1833,7 +1775,7 @@ public:
 
         PIDNickGyroBias = new QSpinBox(groupBox_7);
         PIDNickGyroBias->setObjectName(QString::fromUtf8("PIDNickGyroBias"));
-        PIDNickGyroBias->setMaximum(255);
+        PIDNickGyroBias->setMaximum(254);
         PIDNickGyroBias->setValue(0);
 
         gridLayout_81->addWidget(PIDNickGyroBias, 0, 2, 1, 1);
@@ -1845,7 +1787,7 @@ public:
 
         PIDNickGyroBiasNeg = new QSpinBox(groupBox_7);
         PIDNickGyroBiasNeg->setObjectName(QString::fromUtf8("PIDNickGyroBiasNeg"));
-        PIDNickGyroBiasNeg->setMinimum(-255);
+        PIDNickGyroBiasNeg->setMinimum(-254);
         PIDNickGyroBiasNeg->setMaximum(0);
 
         gridLayout_81->addWidget(PIDNickGyroBiasNeg, 1, 2, 1, 1);
@@ -1858,7 +1800,8 @@ public:
         PIDRollGyroBias = new QSpinBox(groupBox_7);
         PIDRollGyroBias->setObjectName(QString::fromUtf8("PIDRollGyroBias"));
         PIDRollGyroBias->setFont(font);
-        PIDRollGyroBias->setMaximum(255);
+        PIDRollGyroBias->setMinimum(0);
+        PIDRollGyroBias->setMaximum(254);
         PIDRollGyroBias->setValue(0);
 
         gridLayout_81->addWidget(PIDRollGyroBias, 2, 2, 1, 1);
@@ -1870,7 +1813,7 @@ public:
 
         PIDRollGyroBiasNeg = new QSpinBox(groupBox_7);
         PIDRollGyroBiasNeg->setObjectName(QString::fromUtf8("PIDRollGyroBiasNeg"));
-        PIDRollGyroBiasNeg->setMinimum(-255);
+        PIDRollGyroBiasNeg->setMinimum(-254);
         PIDRollGyroBiasNeg->setMaximum(0);
 
         gridLayout_81->addWidget(PIDRollGyroBiasNeg, 3, 2, 1, 1);
@@ -1882,7 +1825,7 @@ public:
 
         PIDPitchGyroBias = new QSpinBox(groupBox_7);
         PIDPitchGyroBias->setObjectName(QString::fromUtf8("PIDPitchGyroBias"));
-        PIDPitchGyroBias->setMaximum(255);
+        PIDPitchGyroBias->setMaximum(254);
         PIDPitchGyroBias->setValue(0);
 
         gridLayout_81->addWidget(PIDPitchGyroBias, 4, 2, 1, 1);
@@ -1894,7 +1837,7 @@ public:
 
         PIDPitchGyroBiasNeg = new QSpinBox(groupBox_7);
         PIDPitchGyroBiasNeg->setObjectName(QString::fromUtf8("PIDPitchGyroBiasNeg"));
-        PIDPitchGyroBiasNeg->setMinimum(-255);
+        PIDPitchGyroBiasNeg->setMinimum(-254);
         PIDPitchGyroBiasNeg->setMaximum(0);
 
         gridLayout_81->addWidget(PIDPitchGyroBiasNeg, 5, 2, 1, 1);
@@ -1998,11 +1941,42 @@ public:
 
         verticalSpacer_20 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_47->addItem(verticalSpacer_20, 2, 0, 1, 1);
+        gridLayout_47->addItem(verticalSpacer_20, 2, 0, 2, 1);
 
         horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_47->addItem(horizontalSpacer_10, 1, 4, 1, 1);
+
+        groupBox_16 = new QGroupBox(sensorSetup);
+        groupBox_16->setObjectName(QString::fromUtf8("groupBox_16"));
+        gridLayout_64 = new QGridLayout(groupBox_16);
+        gridLayout_64->setObjectName(QString::fromUtf8("gridLayout_64"));
+        gridLayout_64->setContentsMargins(-1, 0, -1, -1);
+        label_226 = new QLabel(groupBox_16);
+        label_226->setObjectName(QString::fromUtf8("label_226"));
+        label_226->setFont(font);
+
+        gridLayout_64->addWidget(label_226, 0, 0, 1, 1);
+
+        AdcRate = new QSpinBox(groupBox_16);
+        AdcRate->setObjectName(QString::fromUtf8("AdcRate"));
+        AdcRate->setMinimum(0);
+        AdcRate->setMaximum(254);
+        AdcRate->setValue(120);
+
+        gridLayout_64->addWidget(AdcRate, 0, 1, 1, 1);
+
+        updateAdcRate = new QPushButton(groupBox_16);
+        updateAdcRate->setObjectName(QString::fromUtf8("updateAdcRate"));
+
+        gridLayout_64->addWidget(updateAdcRate, 1, 0, 1, 2);
+
+
+        gridLayout_47->addWidget(groupBox_16, 2, 2, 1, 1);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_47->addItem(verticalSpacer_4, 3, 2, 1, 1);
 
         settingsTab->addTab(sensorSetup, QString());
         Navi = new QWidget();
@@ -2019,6 +1993,214 @@ public:
         gridLayout_86->setContentsMargins(0, 2, 0, 0);
         tabWidget_4 = new QTabWidget(Compass_Setup);
         tabWidget_4->setObjectName(QString::fromUtf8("tabWidget_4"));
+        MM3 = new QWidget();
+        MM3->setObjectName(QString::fromUtf8("MM3"));
+        horizontalLayoutWidget = new QWidget(MM3);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(0, 0, 711, 321));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        frame = new QFrame(horizontalLayoutWidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
+        frame->setSizePolicy(sizePolicy1);
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        groupBox_4 = new QGroupBox(frame);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        groupBox_4->setGeometry(QRect(10, 0, 161, 91));
+        sizePolicy.setHeightForWidth(groupBox_4->sizePolicy().hasHeightForWidth());
+        groupBox_4->setSizePolicy(sizePolicy);
+        verticalLayoutWidget = new QWidget(groupBox_4);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(0, 20, 161, 71));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        startCalib = new QPushButton(verticalLayoutWidget);
+        startCalib->setObjectName(QString::fromUtf8("startCalib"));
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(startCalib->sizePolicy().hasHeightForWidth());
+        startCalib->setSizePolicy(sizePolicy2);
+
+        verticalLayout->addWidget(startCalib);
+
+        stopCalib = new QPushButton(verticalLayoutWidget);
+        stopCalib->setObjectName(QString::fromUtf8("stopCalib"));
+        sizePolicy2.setHeightForWidth(stopCalib->sizePolicy().hasHeightForWidth());
+        stopCalib->setSizePolicy(sizePolicy2);
+
+        verticalLayout->addWidget(stopCalib);
+
+        groupBox_5 = new QGroupBox(frame);
+        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        groupBox_5->setGeometry(QRect(9, 90, 161, 91));
+        verticalLayoutWidget_2 = new QWidget(groupBox_5);
+        verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
+        verticalLayoutWidget_2->setGeometry(QRect(0, 20, 161, 71));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        readCompassValues = new QPushButton(verticalLayoutWidget_2);
+        readCompassValues->setObjectName(QString::fromUtf8("readCompassValues"));
+
+        verticalLayout_2->addWidget(readCompassValues);
+
+        writeCompassValues = new QPushButton(verticalLayoutWidget_2);
+        writeCompassValues->setObjectName(QString::fromUtf8("writeCompassValues"));
+
+        verticalLayout_2->addWidget(writeCompassValues);
+
+
+        horizontalLayout->addWidget(frame);
+
+        groupBox_3 = new QGroupBox(horizontalLayoutWidget);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        sizePolicy.setHeightForWidth(groupBox_3->sizePolicy().hasHeightForWidth());
+        groupBox_3->setSizePolicy(sizePolicy);
+        groupBox_3->setMinimumSize(QSize(350, 0));
+        groupBox_3->setMaximumSize(QSize(300, 16777215));
+        gridLayoutWidget = new QWidget(groupBox_3);
+        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(9, 9, 341, 171));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        X_MIN = new QLineEdit(gridLayoutWidget);
+        X_MIN->setObjectName(QString::fromUtf8("X_MIN"));
+
+        gridLayout->addWidget(X_MIN, 0, 1, 1, 1);
+
+        Y_MIN = new QLineEdit(gridLayoutWidget);
+        Y_MIN->setObjectName(QString::fromUtf8("Y_MIN"));
+
+        gridLayout->addWidget(Y_MIN, 0, 3, 1, 1);
+
+        Z_MIN = new QLineEdit(gridLayoutWidget);
+        Z_MIN->setObjectName(QString::fromUtf8("Z_MIN"));
+
+        gridLayout->addWidget(Z_MIN, 0, 5, 1, 1);
+
+        label_36 = new QLabel(gridLayoutWidget);
+        label_36->setObjectName(QString::fromUtf8("label_36"));
+
+        gridLayout->addWidget(label_36, 0, 0, 1, 1);
+
+        label_37 = new QLabel(gridLayoutWidget);
+        label_37->setObjectName(QString::fromUtf8("label_37"));
+
+        gridLayout->addWidget(label_37, 0, 2, 1, 1);
+
+        label_38 = new QLabel(gridLayoutWidget);
+        label_38->setObjectName(QString::fromUtf8("label_38"));
+
+        gridLayout->addWidget(label_38, 0, 4, 1, 1);
+
+        X_MAX = new QLineEdit(gridLayoutWidget);
+        X_MAX->setObjectName(QString::fromUtf8("X_MAX"));
+
+        gridLayout->addWidget(X_MAX, 1, 1, 1, 1);
+
+        X_RANGE = new QLineEdit(gridLayoutWidget);
+        X_RANGE->setObjectName(QString::fromUtf8("X_RANGE"));
+
+        gridLayout->addWidget(X_RANGE, 2, 1, 1, 1);
+
+        X_OFFSET = new QLineEdit(gridLayoutWidget);
+        X_OFFSET->setObjectName(QString::fromUtf8("X_OFFSET"));
+
+        gridLayout->addWidget(X_OFFSET, 3, 1, 1, 1);
+
+        label_199 = new QLabel(gridLayoutWidget);
+        label_199->setObjectName(QString::fromUtf8("label_199"));
+
+        gridLayout->addWidget(label_199, 3, 0, 1, 1);
+
+        label_200 = new QLabel(gridLayoutWidget);
+        label_200->setObjectName(QString::fromUtf8("label_200"));
+
+        gridLayout->addWidget(label_200, 2, 0, 1, 1);
+
+        label_201 = new QLabel(gridLayoutWidget);
+        label_201->setObjectName(QString::fromUtf8("label_201"));
+
+        gridLayout->addWidget(label_201, 1, 0, 1, 1);
+
+        Y_MAX = new QLineEdit(gridLayoutWidget);
+        Y_MAX->setObjectName(QString::fromUtf8("Y_MAX"));
+
+        gridLayout->addWidget(Y_MAX, 1, 3, 1, 1);
+
+        Z_MAX = new QLineEdit(gridLayoutWidget);
+        Z_MAX->setObjectName(QString::fromUtf8("Z_MAX"));
+
+        gridLayout->addWidget(Z_MAX, 1, 5, 1, 1);
+
+        Y_RANGE = new QLineEdit(gridLayoutWidget);
+        Y_RANGE->setObjectName(QString::fromUtf8("Y_RANGE"));
+
+        gridLayout->addWidget(Y_RANGE, 2, 3, 1, 1);
+
+        Y_OFFSET = new QLineEdit(gridLayoutWidget);
+        Y_OFFSET->setObjectName(QString::fromUtf8("Y_OFFSET"));
+
+        gridLayout->addWidget(Y_OFFSET, 3, 3, 1, 1);
+
+        Z_OFFSET = new QLineEdit(gridLayoutWidget);
+        Z_OFFSET->setObjectName(QString::fromUtf8("Z_OFFSET"));
+
+        gridLayout->addWidget(Z_OFFSET, 3, 5, 1, 1);
+
+        Z_RANGE = new QLineEdit(gridLayoutWidget);
+        Z_RANGE->setObjectName(QString::fromUtf8("Z_RANGE"));
+
+        gridLayout->addWidget(Z_RANGE, 2, 5, 1, 1);
+
+        label_202 = new QLabel(gridLayoutWidget);
+        label_202->setObjectName(QString::fromUtf8("label_202"));
+
+        gridLayout->addWidget(label_202, 2, 2, 1, 1);
+
+        label_203 = new QLabel(gridLayoutWidget);
+        label_203->setObjectName(QString::fromUtf8("label_203"));
+
+        gridLayout->addWidget(label_203, 3, 2, 1, 1);
+
+        label_204 = new QLabel(gridLayoutWidget);
+        label_204->setObjectName(QString::fromUtf8("label_204"));
+
+        gridLayout->addWidget(label_204, 1, 2, 1, 1);
+
+        label_205 = new QLabel(gridLayoutWidget);
+        label_205->setObjectName(QString::fromUtf8("label_205"));
+
+        gridLayout->addWidget(label_205, 3, 4, 1, 1);
+
+        label_206 = new QLabel(gridLayoutWidget);
+        label_206->setObjectName(QString::fromUtf8("label_206"));
+
+        gridLayout->addWidget(label_206, 2, 4, 1, 1);
+
+        label_207 = new QLabel(gridLayoutWidget);
+        label_207->setObjectName(QString::fromUtf8("label_207"));
+
+        gridLayout->addWidget(label_207, 1, 4, 1, 1);
+
+
+        horizontalLayout->addWidget(groupBox_3);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        tabWidget_4->addTab(MM3, QString());
         HMC5843 = new QWidget();
         HMC5843->setObjectName(QString::fromUtf8("HMC5843"));
         groupBox_18 = new QGroupBox(HMC5843);
@@ -2191,9 +2373,17 @@ public:
 
         gridLayout_17->addWidget(PIDPitchThrottleOffset, 6, 1, 1, 1);
 
-        verticalSpacer_14 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label_127 = new QLabel(PIDPitchSetup);
+        label_127->setObjectName(QString::fromUtf8("label_127"));
 
-        gridLayout_17->addItem(verticalSpacer_14, 7, 1, 1, 1);
+        gridLayout_17->addWidget(label_127, 7, 0, 1, 1);
+
+        PIDPitchStickForce = new QSpinBox(PIDPitchSetup);
+        PIDPitchStickForce->setObjectName(QString::fromUtf8("PIDPitchStickForce"));
+        PIDPitchStickForce->setMaximum(255);
+        PIDPitchStickForce->setValue(50);
+
+        gridLayout_17->addWidget(PIDPitchStickForce, 7, 1, 1, 1);
 
 
         gridLayout_37->addWidget(PIDPitchSetup, 0, 3, 2, 1);
@@ -2375,6 +2565,18 @@ public:
         verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_14->addItem(verticalSpacer_12, 12, 1, 1, 1);
+
+        RollStick = new QLabel(PIDRollSetup);
+        RollStick->setObjectName(QString::fromUtf8("RollStick"));
+
+        gridLayout_14->addWidget(RollStick, 10, 3, 1, 1);
+
+        PIDRollStickForce = new QSpinBox(PIDRollSetup);
+        PIDRollStickForce->setObjectName(QString::fromUtf8("PIDRollStickForce"));
+        PIDRollStickForce->setMaximum(254);
+        PIDRollStickForce->setValue(120);
+
+        gridLayout_14->addWidget(PIDRollStickForce, 10, 4, 1, 1);
 
 
         gridLayout_37->addWidget(PIDRollSetup, 0, 1, 8, 1);
@@ -2561,40 +2763,32 @@ public:
 
         gridLayout_15->addItem(verticalSpacer_10, 13, 1, 1, 1);
 
+        label_150 = new QLabel(PIDNickSetup);
+        label_150->setObjectName(QString::fromUtf8("label_150"));
 
-        gridLayout_37->addWidget(PIDNickSetup, 0, 0, 7, 1);
+        gridLayout_15->addWidget(label_150, 11, 2, 1, 1);
+
+        PIDNickStickForce = new QSpinBox(PIDNickSetup);
+        PIDNickStickForce->setObjectName(QString::fromUtf8("PIDNickStickForce"));
+        PIDNickStickForce->setMaximum(254);
+        PIDNickStickForce->setValue(120);
+
+        gridLayout_15->addWidget(PIDNickStickForce, 11, 3, 1, 1);
+
+
+        gridLayout_37->addWidget(PIDNickSetup, 0, 0, 8, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_37->addItem(horizontalSpacer_4, 1, 4, 1, 1);
 
         PIDStickSetup = new QGroupBox(PID);
         PIDStickSetup->setObjectName(QString::fromUtf8("PIDStickSetup"));
-        PIDStickSetup->setMinimumSize(QSize(0, 120));
-        PIDStickSetup->setMaximumSize(QSize(16777215, 102));
+        PIDStickSetup->setMinimumSize(QSize(0, 0));
+        PIDStickSetup->setMaximumSize(QSize(16777215, 132));
         gridLayout_16 = new QGridLayout(PIDStickSetup);
         gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
         gridLayout_16->setContentsMargins(-1, 0, -1, -1);
-        label_126 = new QLabel(PIDStickSetup);
-        label_126->setObjectName(QString::fromUtf8("label_126"));
-
-        gridLayout_16->addWidget(label_126, 0, 0, 1, 1);
-
-        PIDStickForce = new QSpinBox(PIDStickSetup);
-        PIDStickForce->setObjectName(QString::fromUtf8("PIDStickForce"));
-        PIDStickForce->setMaximum(255);
-        PIDStickForce->setValue(100);
-
-        gridLayout_16->addWidget(PIDStickForce, 0, 1, 1, 1);
-
-        label_127 = new QLabel(PIDStickSetup);
-        label_127->setObjectName(QString::fromUtf8("label_127"));
-
-        gridLayout_16->addWidget(label_127, 1, 0, 1, 1);
-
-        PIDPitchStickForce = new QSpinBox(PIDStickSetup);
-        PIDPitchStickForce->setObjectName(QString::fromUtf8("PIDPitchStickForce"));
-        PIDPitchStickForce->setMaximum(255);
-        PIDPitchStickForce->setValue(50);
-
-        gridLayout_16->addWidget(PIDPitchStickForce, 1, 1, 1, 1);
-
         label_125 = new QLabel(PIDStickSetup);
         label_125->setObjectName(QString::fromUtf8("label_125"));
 
@@ -2611,12 +2805,18 @@ public:
 
         gridLayout_16->addItem(verticalSpacer_13, 3, 1, 1, 1);
 
+        label_126 = new QLabel(PIDStickSetup);
+        label_126->setObjectName(QString::fromUtf8("label_126"));
 
-        gridLayout_37->addWidget(PIDStickSetup, 4, 3, 1, 1);
+        gridLayout_16->addWidget(label_126, 1, 0, 1, 1);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        PIDHeadingHold = new QComboBox(PIDStickSetup);
+        PIDHeadingHold->setObjectName(QString::fromUtf8("PIDHeadingHold"));
 
-        gridLayout_37->addItem(horizontalSpacer_4, 1, 4, 1, 1);
+        gridLayout_16->addWidget(PIDHeadingHold, 1, 1, 1, 1);
+
+
+        gridLayout_37->addWidget(PIDStickSetup, 2, 3, 1, 1);
 
         mathTab->addTab(PID, QString());
         PIDSimple = new QWidget();
@@ -2801,8 +3001,20 @@ public:
 
         gridLayout_18->addItem(verticalSpacer_8, 13, 1, 1, 1);
 
+        label_151 = new QLabel(PIDsimpleSetup);
+        label_151->setObjectName(QString::fromUtf8("label_151"));
 
-        gridLayout_36->addWidget(PIDsimpleSetup, 1, 0, 3, 1);
+        gridLayout_18->addWidget(label_151, 11, 2, 1, 1);
+
+        PIDSimpleStickForce = new QSpinBox(PIDsimpleSetup);
+        PIDSimpleStickForce->setObjectName(QString::fromUtf8("PIDSimpleStickForce"));
+        PIDSimpleStickForce->setMaximum(255);
+        PIDSimpleStickForce->setValue(120);
+
+        gridLayout_18->addWidget(PIDSimpleStickForce, 11, 3, 1, 1);
+
+
+        gridLayout_36->addWidget(PIDsimpleSetup, 1, 0, 5, 1);
 
         PIDSimplePitchSetup = new QGroupBox(PIDSimple);
         PIDSimplePitchSetup->setObjectName(QString::fromUtf8("PIDSimplePitchSetup"));
@@ -2892,48 +3104,37 @@ public:
 
         PIDSimplePitchThrottleOffset = new QSpinBox(PIDSimplePitchSetup);
         PIDSimplePitchThrottleOffset->setObjectName(QString::fromUtf8("PIDSimplePitchThrottleOffset"));
-        PIDSimplePitchThrottleOffset->setMaximum(255);
+        PIDSimplePitchThrottleOffset->setMaximum(254);
         PIDSimplePitchThrottleOffset->setValue(120);
 
         gridLayout_19->addWidget(PIDSimplePitchThrottleOffset, 6, 1, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_19->addItem(verticalSpacer, 7, 0, 1, 1);
+        gridLayout_19->addItem(verticalSpacer, 8, 0, 1, 1);
 
-
-        gridLayout_36->addWidget(PIDSimplePitchSetup, 1, 1, 3, 1);
-
-        PIDSimpleStickSetup = new QGroupBox(PIDSimple);
-        PIDSimpleStickSetup->setObjectName(QString::fromUtf8("PIDSimpleStickSetup"));
-        PIDSimpleStickSetup->setMaximumSize(QSize(130, 16777215));
-        gridLayout_20 = new QGridLayout(PIDSimpleStickSetup);
-        gridLayout_20->setObjectName(QString::fromUtf8("gridLayout_20"));
-        gridLayout_20->setContentsMargins(-1, 0, -1, -1);
-        label_147 = new QLabel(PIDSimpleStickSetup);
-        label_147->setObjectName(QString::fromUtf8("label_147"));
-
-        gridLayout_20->addWidget(label_147, 0, 0, 1, 1);
-
-        PIDSimpleStickForce = new QSpinBox(PIDSimpleStickSetup);
-        PIDSimpleStickForce->setObjectName(QString::fromUtf8("PIDSimpleStickForce"));
-        PIDSimpleStickForce->setMaximum(255);
-        PIDSimpleStickForce->setValue(120);
-
-        gridLayout_20->addWidget(PIDSimpleStickForce, 0, 1, 1, 1);
-
-        label_148 = new QLabel(PIDSimpleStickSetup);
+        label_148 = new QLabel(PIDSimplePitchSetup);
         label_148->setObjectName(QString::fromUtf8("label_148"));
 
-        gridLayout_20->addWidget(label_148, 1, 0, 1, 1);
+        gridLayout_19->addWidget(label_148, 7, 0, 1, 1);
 
-        PIDSimplePitchStickForce = new QSpinBox(PIDSimpleStickSetup);
+        PIDSimplePitchStickForce = new QSpinBox(PIDSimplePitchSetup);
         PIDSimplePitchStickForce->setObjectName(QString::fromUtf8("PIDSimplePitchStickForce"));
         PIDSimplePitchStickForce->setMaximum(255);
         PIDSimplePitchStickForce->setValue(55);
 
-        gridLayout_20->addWidget(PIDSimplePitchStickForce, 1, 1, 1, 1);
+        gridLayout_19->addWidget(PIDSimplePitchStickForce, 7, 1, 1, 1);
 
+
+        gridLayout_36->addWidget(PIDSimplePitchSetup, 1, 1, 5, 1);
+
+        PIDSimpleStickSetup = new QGroupBox(PIDSimple);
+        PIDSimpleStickSetup->setObjectName(QString::fromUtf8("PIDSimpleStickSetup"));
+        PIDSimpleStickSetup->setMinimumSize(QSize(180, 0));
+        PIDSimpleStickSetup->setMaximumSize(QSize(180, 16777215));
+        gridLayout_20 = new QGridLayout(PIDSimpleStickSetup);
+        gridLayout_20->setObjectName(QString::fromUtf8("gridLayout_20"));
+        gridLayout_20->setContentsMargins(-1, 0, -1, -1);
         label_221 = new QLabel(PIDSimpleStickSetup);
         label_221->setObjectName(QString::fromUtf8("label_221"));
 
@@ -2942,8 +3143,8 @@ public:
         PIDSimpleThrottleOffset = new QSpinBox(PIDSimpleStickSetup);
         PIDSimpleThrottleOffset->setObjectName(QString::fromUtf8("PIDSimpleThrottleOffset"));
         PIDSimpleThrottleOffset->setFont(font);
-        PIDSimpleThrottleOffset->setMaximum(255);
-        PIDSimpleThrottleOffset->setValue(100);
+        PIDSimpleThrottleOffset->setMaximum(120);
+        PIDSimpleThrottleOffset->setValue(70);
 
         gridLayout_20->addWidget(PIDSimpleThrottleOffset, 2, 1, 1, 1);
 
@@ -2951,422 +3152,42 @@ public:
 
         gridLayout_20->addItem(verticalSpacer_9, 3, 0, 1, 1);
 
+        label_152 = new QLabel(PIDSimpleStickSetup);
+        label_152->setObjectName(QString::fromUtf8("label_152"));
 
-        gridLayout_36->addWidget(PIDSimpleStickSetup, 1, 2, 3, 1);
+        gridLayout_20->addWidget(label_152, 0, 0, 1, 1);
+
+        PIDSimpleHeadingHold = new QComboBox(PIDSimpleStickSetup);
+        PIDSimpleHeadingHold->setObjectName(QString::fromUtf8("PIDSimpleHeadingHold"));
+
+        gridLayout_20->addWidget(PIDSimpleHeadingHold, 0, 1, 1, 1);
+
+
+        gridLayout_36->addWidget(PIDSimpleStickSetup, 1, 2, 5, 1);
 
         verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_36->addItem(verticalSpacer_5, 4, 0, 1, 1);
+        gridLayout_36->addItem(verticalSpacer_5, 6, 0, 1, 1);
 
-        usePIDSimple = new QPushButton(PIDSimple);
-        usePIDSimple->setObjectName(QString::fromUtf8("usePIDSimple"));
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_36->addWidget(usePIDSimple, 2, 5, 1, 1);
+        gridLayout_36->addItem(horizontalSpacer_2, 5, 3, 1, 1);
 
         readPID = new QPushButton(PIDSimple);
         readPID->setObjectName(QString::fromUtf8("readPID"));
+        readPID->setMinimumSize(QSize(80, 0));
+        readPID->setMaximumSize(QSize(80, 16777215));
 
-        gridLayout_36->addWidget(readPID, 1, 5, 1, 1);
+        gridLayout_36->addWidget(readPID, 1, 3, 1, 1);
+
+        usePIDSimple = new QPushButton(PIDSimple);
+        usePIDSimple->setObjectName(QString::fromUtf8("usePIDSimple"));
+        usePIDSimple->setMinimumSize(QSize(80, 0));
+        usePIDSimple->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_36->addWidget(usePIDSimple, 2, 3, 1, 1);
 
         mathTab->addTab(PIDSimple, QString());
-        PD = new QWidget();
-        PD->setObjectName(QString::fromUtf8("PD"));
-        gridLayout_38 = new QGridLayout(PD);
-        gridLayout_38->setObjectName(QString::fromUtf8("gridLayout_38"));
-        PDRollSetup = new QGroupBox(PD);
-        PDRollSetup->setObjectName(QString::fromUtf8("PDRollSetup"));
-        gridLayout_21 = new QGridLayout(PDRollSetup);
-        gridLayout_21->setObjectName(QString::fromUtf8("gridLayout_21"));
-        label_157 = new QLabel(PDRollSetup);
-        label_157->setObjectName(QString::fromUtf8("label_157"));
-
-        gridLayout_21->addWidget(label_157, 0, 0, 1, 1);
-
-        PDRollP = new QSpinBox(PDRollSetup);
-        PDRollP->setObjectName(QString::fromUtf8("PDRollP"));
-        PDRollP->setMaximum(255);
-
-        gridLayout_21->addWidget(PDRollP, 0, 1, 1, 1);
-
-        label_154 = new QLabel(PDRollSetup);
-        label_154->setObjectName(QString::fromUtf8("label_154"));
-
-        gridLayout_21->addWidget(label_154, 1, 0, 1, 1);
-
-        PDRollD = new QSpinBox(PDRollSetup);
-        PDRollD->setObjectName(QString::fromUtf8("PDRollD"));
-        PDRollD->setMaximum(255);
-
-        gridLayout_21->addWidget(PDRollD, 1, 1, 1, 1);
-
-        label_156 = new QLabel(PDRollSetup);
-        label_156->setObjectName(QString::fromUtf8("label_156"));
-
-        gridLayout_21->addWidget(label_156, 2, 0, 1, 1);
-
-        PDRollGyroForce = new QSpinBox(PDRollSetup);
-        PDRollGyroForce->setObjectName(QString::fromUtf8("PDRollGyroForce"));
-        PDRollGyroForce->setMaximum(255);
-
-        gridLayout_21->addWidget(PDRollGyroForce, 2, 1, 1, 1);
-
-        label_161 = new QLabel(PDRollSetup);
-        label_161->setObjectName(QString::fromUtf8("label_161"));
-
-        gridLayout_21->addWidget(label_161, 3, 0, 1, 1);
-
-        PDRollACCForce = new QSpinBox(PDRollSetup);
-        PDRollACCForce->setObjectName(QString::fromUtf8("PDRollACCForce"));
-        PDRollACCForce->setMaximum(255);
-
-        gridLayout_21->addWidget(PDRollACCForce, 3, 1, 1, 1);
-
-        label_158 = new QLabel(PDRollSetup);
-        label_158->setObjectName(QString::fromUtf8("label_158"));
-
-        gridLayout_21->addWidget(label_158, 4, 0, 1, 1);
-
-        PDRollPitchForce = new QSpinBox(PDRollSetup);
-        PDRollPitchForce->setObjectName(QString::fromUtf8("PDRollPitchForce"));
-        PDRollPitchForce->setMaximum(255);
-
-        gridLayout_21->addWidget(PDRollPitchForce, 4, 1, 1, 1);
-
-        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_21->addItem(verticalSpacer_16, 5, 0, 1, 1);
-
-
-        gridLayout_38->addWidget(PDRollSetup, 0, 0, 2, 1);
-
-        PDPitchSetup = new QGroupBox(PD);
-        PDPitchSetup->setObjectName(QString::fromUtf8("PDPitchSetup"));
-        gridLayout_24 = new QGridLayout(PDPitchSetup);
-        gridLayout_24->setObjectName(QString::fromUtf8("gridLayout_24"));
-        label_150 = new QLabel(PDPitchSetup);
-        label_150->setObjectName(QString::fromUtf8("label_150"));
-
-        gridLayout_24->addWidget(label_150, 0, 0, 1, 1);
-
-        PDPitchP = new QSpinBox(PDPitchSetup);
-        PDPitchP->setObjectName(QString::fromUtf8("PDPitchP"));
-        PDPitchP->setMaximum(255);
-
-        gridLayout_24->addWidget(PDPitchP, 0, 1, 1, 1);
-
-        label_151 = new QLabel(PDPitchSetup);
-        label_151->setObjectName(QString::fromUtf8("label_151"));
-
-        gridLayout_24->addWidget(label_151, 1, 0, 1, 1);
-
-        PDPitchD = new QSpinBox(PDPitchSetup);
-        PDPitchD->setObjectName(QString::fromUtf8("PDPitchD"));
-        PDPitchD->setMaximum(255);
-
-        gridLayout_24->addWidget(PDPitchD, 1, 1, 1, 1);
-
-        label_152 = new QLabel(PDPitchSetup);
-        label_152->setObjectName(QString::fromUtf8("label_152"));
-
-        gridLayout_24->addWidget(label_152, 2, 0, 1, 1);
-
-        PDPitchGyroForce = new QSpinBox(PDPitchSetup);
-        PDPitchGyroForce->setObjectName(QString::fromUtf8("PDPitchGyroForce"));
-        PDPitchGyroForce->setMaximum(255);
-
-        gridLayout_24->addWidget(PDPitchGyroForce, 2, 1, 1, 1);
-
-        label_165 = new QLabel(PDPitchSetup);
-        label_165->setObjectName(QString::fromUtf8("label_165"));
-
-        gridLayout_24->addWidget(label_165, 3, 0, 1, 1);
-
-        PDPitchThrottleOffset = new QSpinBox(PDPitchSetup);
-        PDPitchThrottleOffset->setObjectName(QString::fromUtf8("PDPitchThrottleOffset"));
-        PDPitchThrottleOffset->setMaximum(255);
-
-        gridLayout_24->addWidget(PDPitchThrottleOffset, 3, 1, 1, 1);
-
-
-        gridLayout_38->addWidget(PDPitchSetup, 0, 1, 1, 1);
-
-        PDStickSetup = new QGroupBox(PD);
-        PDStickSetup->setObjectName(QString::fromUtf8("PDStickSetup"));
-        gridLayout_23 = new QGridLayout(PDStickSetup);
-        gridLayout_23->setObjectName(QString::fromUtf8("gridLayout_23"));
-        label_153 = new QLabel(PDStickSetup);
-        label_153->setObjectName(QString::fromUtf8("label_153"));
-
-        gridLayout_23->addWidget(label_153, 0, 0, 1, 1);
-
-        PDStickForce = new QSpinBox(PDStickSetup);
-        PDStickForce->setObjectName(QString::fromUtf8("PDStickForce"));
-        PDStickForce->setMaximum(255);
-
-        gridLayout_23->addWidget(PDStickForce, 0, 1, 1, 1);
-
-        label_164 = new QLabel(PDStickSetup);
-        label_164->setObjectName(QString::fromUtf8("label_164"));
-
-        gridLayout_23->addWidget(label_164, 1, 0, 1, 1);
-
-        PDPitchStick = new QSpinBox(PDStickSetup);
-        PDPitchStick->setObjectName(QString::fromUtf8("PDPitchStick"));
-        PDPitchStick->setMaximum(255);
-
-        gridLayout_23->addWidget(PDPitchStick, 1, 1, 1, 1);
-
-        label_216 = new QLabel(PDStickSetup);
-        label_216->setObjectName(QString::fromUtf8("label_216"));
-
-        gridLayout_23->addWidget(label_216, 2, 0, 1, 1);
-
-        PDThrottleOffset = new QSpinBox(PDStickSetup);
-        PDThrottleOffset->setObjectName(QString::fromUtf8("PDThrottleOffset"));
-        PDThrottleOffset->setMaximum(255);
-
-        gridLayout_23->addWidget(PDThrottleOffset, 2, 1, 1, 1);
-
-        verticalSpacer_18 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_23->addItem(verticalSpacer_18, 3, 0, 1, 1);
-
-
-        gridLayout_38->addWidget(PDStickSetup, 1, 1, 2, 1);
-
-        PDNickSetup = new QGroupBox(PD);
-        PDNickSetup->setObjectName(QString::fromUtf8("PDNickSetup"));
-        gridLayout_22 = new QGridLayout(PDNickSetup);
-        gridLayout_22->setObjectName(QString::fromUtf8("gridLayout_22"));
-        label_160 = new QLabel(PDNickSetup);
-        label_160->setObjectName(QString::fromUtf8("label_160"));
-
-        gridLayout_22->addWidget(label_160, 0, 0, 1, 1);
-
-        PDNickP = new QSpinBox(PDNickSetup);
-        PDNickP->setObjectName(QString::fromUtf8("PDNickP"));
-        PDNickP->setMaximum(255);
-
-        gridLayout_22->addWidget(PDNickP, 0, 1, 1, 1);
-
-        label_155 = new QLabel(PDNickSetup);
-        label_155->setObjectName(QString::fromUtf8("label_155"));
-
-        gridLayout_22->addWidget(label_155, 1, 0, 1, 1);
-
-        PDNickD = new QSpinBox(PDNickSetup);
-        PDNickD->setObjectName(QString::fromUtf8("PDNickD"));
-        PDNickD->setMaximum(255);
-
-        gridLayout_22->addWidget(PDNickD, 1, 1, 1, 1);
-
-        label_159 = new QLabel(PDNickSetup);
-        label_159->setObjectName(QString::fromUtf8("label_159"));
-
-        gridLayout_22->addWidget(label_159, 2, 0, 1, 1);
-
-        PDNickGyroForce = new QSpinBox(PDNickSetup);
-        PDNickGyroForce->setObjectName(QString::fromUtf8("PDNickGyroForce"));
-        PDNickGyroForce->setMaximum(255);
-
-        gridLayout_22->addWidget(PDNickGyroForce, 2, 1, 1, 1);
-
-        label_163 = new QLabel(PDNickSetup);
-        label_163->setObjectName(QString::fromUtf8("label_163"));
-
-        gridLayout_22->addWidget(label_163, 3, 0, 1, 1);
-
-        PDNickACCForce = new QSpinBox(PDNickSetup);
-        PDNickACCForce->setObjectName(QString::fromUtf8("PDNickACCForce"));
-        PDNickACCForce->setMaximum(255);
-
-        gridLayout_22->addWidget(PDNickACCForce, 3, 1, 1, 1);
-
-        label_162 = new QLabel(PDNickSetup);
-        label_162->setObjectName(QString::fromUtf8("label_162"));
-
-        gridLayout_22->addWidget(label_162, 4, 0, 1, 1);
-
-        PDNickPitchForce = new QSpinBox(PDNickSetup);
-        PDNickPitchForce->setObjectName(QString::fromUtf8("PDNickPitchForce"));
-        PDNickPitchForce->setMaximum(255);
-
-        gridLayout_22->addWidget(PDNickPitchForce, 4, 1, 1, 1);
-
-        verticalSpacer_17 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_22->addItem(verticalSpacer_17, 5, 0, 1, 1);
-
-
-        gridLayout_38->addWidget(PDNickSetup, 2, 0, 1, 1);
-
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_38->addItem(horizontalSpacer_5, 0, 2, 1, 1);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_38->addItem(verticalSpacer_4, 3, 0, 1, 1);
-
-        mathTab->addTab(PD, QString());
-        PDSimple = new QWidget();
-        PDSimple->setObjectName(QString::fromUtf8("PDSimple"));
-        gridLayout_39 = new QGridLayout(PDSimple);
-        gridLayout_39->setObjectName(QString::fromUtf8("gridLayout_39"));
-        PDsimpleSetup = new QGroupBox(PDSimple);
-        PDsimpleSetup->setObjectName(QString::fromUtf8("PDsimpleSetup"));
-        PDsimpleSetup->setMaximumSize(QSize(16777215, 16777215));
-        gridLayout_25 = new QGridLayout(PDsimpleSetup);
-        gridLayout_25->setObjectName(QString::fromUtf8("gridLayout_25"));
-        label_173 = new QLabel(PDsimpleSetup);
-        label_173->setObjectName(QString::fromUtf8("label_173"));
-
-        gridLayout_25->addWidget(label_173, 0, 0, 1, 1);
-
-        PDSimpleP = new QSpinBox(PDsimpleSetup);
-        PDSimpleP->setObjectName(QString::fromUtf8("PDSimpleP"));
-        PDSimpleP->setMaximum(255);
-
-        gridLayout_25->addWidget(PDSimpleP, 0, 1, 1, 1);
-
-        label_171 = new QLabel(PDsimpleSetup);
-        label_171->setObjectName(QString::fromUtf8("label_171"));
-
-        gridLayout_25->addWidget(label_171, 1, 0, 1, 1);
-
-        PDSimpleD = new QSpinBox(PDsimpleSetup);
-        PDSimpleD->setObjectName(QString::fromUtf8("PDSimpleD"));
-        PDSimpleD->setMaximum(255);
-
-        gridLayout_25->addWidget(PDSimpleD, 1, 1, 1, 1);
-
-        label_172 = new QLabel(PDsimpleSetup);
-        label_172->setObjectName(QString::fromUtf8("label_172"));
-
-        gridLayout_25->addWidget(label_172, 2, 0, 1, 1);
-
-        PDSimpleGyroForce = new QSpinBox(PDsimpleSetup);
-        PDSimpleGyroForce->setObjectName(QString::fromUtf8("PDSimpleGyroForce"));
-        PDSimpleGyroForce->setMaximum(255);
-
-        gridLayout_25->addWidget(PDSimpleGyroForce, 2, 1, 1, 1);
-
-        label_175 = new QLabel(PDsimpleSetup);
-        label_175->setObjectName(QString::fromUtf8("label_175"));
-
-        gridLayout_25->addWidget(label_175, 3, 0, 1, 1);
-
-        PDSimpleACCForce = new QSpinBox(PDsimpleSetup);
-        PDSimpleACCForce->setObjectName(QString::fromUtf8("PDSimpleACCForce"));
-        PDSimpleACCForce->setMaximum(255);
-
-        gridLayout_25->addWidget(PDSimpleACCForce, 3, 1, 1, 1);
-
-        label_174 = new QLabel(PDsimpleSetup);
-        label_174->setObjectName(QString::fromUtf8("label_174"));
-
-        gridLayout_25->addWidget(label_174, 4, 0, 1, 1);
-
-        PDSimplePitchForce = new QSpinBox(PDsimpleSetup);
-        PDSimplePitchForce->setObjectName(QString::fromUtf8("PDSimplePitchForce"));
-        PDSimplePitchForce->setMaximum(255);
-
-        gridLayout_25->addWidget(PDSimplePitchForce, 4, 1, 1, 1);
-
-
-        gridLayout_39->addWidget(PDsimpleSetup, 0, 0, 1, 1);
-
-        PDSimplePitchSetup = new QGroupBox(PDSimple);
-        PDSimplePitchSetup->setObjectName(QString::fromUtf8("PDSimplePitchSetup"));
-        PDSimplePitchSetup->setMaximumSize(QSize(16777215, 16666666));
-        gridLayout_26 = new QGridLayout(PDSimplePitchSetup);
-        gridLayout_26->setObjectName(QString::fromUtf8("gridLayout_26"));
-        label_167 = new QLabel(PDSimplePitchSetup);
-        label_167->setObjectName(QString::fromUtf8("label_167"));
-
-        gridLayout_26->addWidget(label_167, 0, 0, 1, 1);
-
-        PDSimplePitch = new QSpinBox(PDSimplePitchSetup);
-        PDSimplePitch->setObjectName(QString::fromUtf8("PDSimplePitch"));
-        PDSimplePitch->setMaximum(255);
-
-        gridLayout_26->addWidget(PDSimplePitch, 0, 1, 1, 1);
-
-        label_168 = new QLabel(PDSimplePitchSetup);
-        label_168->setObjectName(QString::fromUtf8("label_168"));
-
-        gridLayout_26->addWidget(label_168, 1, 0, 1, 1);
-
-        PDSimplePitchD = new QSpinBox(PDSimplePitchSetup);
-        PDSimplePitchD->setObjectName(QString::fromUtf8("PDSimplePitchD"));
-        PDSimplePitchD->setMaximum(255);
-
-        gridLayout_26->addWidget(PDSimplePitchD, 1, 1, 1, 1);
-
-        label_169 = new QLabel(PDSimplePitchSetup);
-        label_169->setObjectName(QString::fromUtf8("label_169"));
-
-        gridLayout_26->addWidget(label_169, 2, 0, 1, 1);
-
-        PDSimplePitchGyroForce = new QSpinBox(PDSimplePitchSetup);
-        PDSimplePitchGyroForce->setObjectName(QString::fromUtf8("PDSimplePitchGyroForce"));
-        PDSimplePitchGyroForce->setMaximum(255);
-
-        gridLayout_26->addWidget(PDSimplePitchGyroForce, 2, 1, 1, 1);
-
-        label_170 = new QLabel(PDSimplePitchSetup);
-        label_170->setObjectName(QString::fromUtf8("label_170"));
-
-        gridLayout_26->addWidget(label_170, 3, 0, 1, 1);
-
-        PDSimplePitchThrottleOffset = new QSpinBox(PDSimplePitchSetup);
-        PDSimplePitchThrottleOffset->setObjectName(QString::fromUtf8("PDSimplePitchThrottleOffset"));
-        PDSimplePitchThrottleOffset->setMaximum(255);
-
-        gridLayout_26->addWidget(PDSimplePitchThrottleOffset, 3, 1, 1, 1);
-
-
-        gridLayout_39->addWidget(PDSimplePitchSetup, 0, 1, 1, 1);
-
-        PDSimpleStickSetup = new QGroupBox(PDSimple);
-        PDSimpleStickSetup->setObjectName(QString::fromUtf8("PDSimpleStickSetup"));
-        PDSimpleStickSetup->setMaximumSize(QSize(16777215, 16777215));
-        gridLayout_27 = new QGridLayout(PDSimpleStickSetup);
-        gridLayout_27->setObjectName(QString::fromUtf8("gridLayout_27"));
-        label_176 = new QLabel(PDSimpleStickSetup);
-        label_176->setObjectName(QString::fromUtf8("label_176"));
-
-        gridLayout_27->addWidget(label_176, 0, 0, 1, 1);
-
-        PDSimpleStickForce = new QSpinBox(PDSimpleStickSetup);
-        PDSimpleStickForce->setObjectName(QString::fromUtf8("PDSimpleStickForce"));
-        PDSimpleStickForce->setMaximum(255);
-
-        gridLayout_27->addWidget(PDSimpleStickForce, 0, 1, 1, 1);
-
-        label_177 = new QLabel(PDSimpleStickSetup);
-        label_177->setObjectName(QString::fromUtf8("label_177"));
-
-        gridLayout_27->addWidget(label_177, 1, 0, 1, 1);
-
-        PDSimplePitchStickForce = new QSpinBox(PDSimpleStickSetup);
-        PDSimplePitchStickForce->setObjectName(QString::fromUtf8("PDSimplePitchStickForce"));
-        PDSimplePitchStickForce->setMaximum(255);
-
-        gridLayout_27->addWidget(PDSimplePitchStickForce, 1, 1, 1, 1);
-
-
-        gridLayout_39->addWidget(PDSimpleStickSetup, 0, 2, 1, 1);
-
-        horizontalSpacer_6 = new QSpacerItem(204, 182, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_39->addItem(horizontalSpacer_6, 0, 3, 1, 1);
-
-        verticalSpacer_11 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_39->addItem(verticalSpacer_11, 1, 0, 1, 1);
-
-        mathTab->addTab(PDSimple, QString());
         Kalman = new QWidget();
         Kalman->setObjectName(QString::fromUtf8("Kalman"));
         textEdit = new QTextEdit(Kalman);
@@ -3837,9 +3658,9 @@ public:
 
         retranslateUi(wdg_settingsTab);
 
-        settingsTab->setCurrentIndex(0);
+        settingsTab->setCurrentIndex(5);
         BTMode->setCurrentIndex(0);
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(1);
         baroChan->setCurrentIndex(4);
         tabWidget_3->setCurrentIndex(0);
         tabWidget_4->setCurrentIndex(0);
@@ -3857,19 +3678,40 @@ public:
 #endif // QT_NO_ACCESSIBILITY
         gasSetup->setTitle(QApplication::translate("wdg_settingsTab", "Gas Setup", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("wdg_settingsTab", "Sys Gas Max", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        sysGasMax->setToolTip(QApplication::translate("wdg_settingsTab", "This setup is to controll how much Throtle the system will alow after stick and math has be processed. Its kind of a limiter so handle with care. \n"
+"After you did some experimenting and your sure your flyer works as expected set this to 254.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_5->setText(QApplication::translate("wdg_settingsTab", "Sys Gas Min", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("wdg_settingsTab", "Emergency Gas", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("wdg_settingsTab", "Emg Gas Duration", 0, QApplication::UnicodeUTF8));
         ClockSetup->setTitle(QApplication::translate("wdg_settingsTab", "Clock Setup", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("wdg_settingsTab", "Calc wait", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        calcWait->setToolTip(QApplication::translate("wdg_settingsTab", "Wait how many main cycles to start a calculation cycle.\n"
+"This is athe poor mans solution for this. But for now it works fine ;)", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_12->setText(QApplication::translate("wdg_settingsTab", "Telemetrie wait", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        telemetrieWait->setToolTip(QApplication::translate("wdg_settingsTab", "How many calc cycles to wait to print out telemetri.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_10->setText(QApplication::translate("wdg_settingsTab", "Component wait", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        componentWait->setToolTip(QApplication::translate("wdg_settingsTab", "How many calc cycles to wait to read the componets data.\n"
+"For now this is the compass.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_11->setText(QApplication::translate("wdg_settingsTab", "ADC Clock Div", 0, QApplication::UnicodeUTF8));
         ESCSetup->setTitle(QApplication::translate("wdg_settingsTab", "ESC Setup", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("wdg_settingsTab", "ESC Max", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("wdg_settingsTab", "ESC Type", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("wdg_settingsTab", "ESC Base Address", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("wdg_settingsTab", "ESC Address Hop", 0, QApplication::UnicodeUTF8));
+        ESCType->clear();
+        ESCType->insertItems(0, QStringList()
+         << QApplication::translate("wdg_settingsTab", "I2C MK", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("wdg_settingsTab", "I2C YGE", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("wdg_settingsTab", "PPM", 0, QApplication::UnicodeUTF8)
+        );
         miscSetup->setTitle(QApplication::translate("wdg_settingsTab", "Misc Setup", 0, QApplication::UnicodeUTF8));
         label_17->setText(QApplication::translate("wdg_settingsTab", "Calc Mode", 0, QApplication::UnicodeUTF8));
         label_20->setText(QApplication::translate("wdg_settingsTab", "Low Voltage", 0, QApplication::UnicodeUTF8));
@@ -3889,10 +3731,7 @@ public:
          << QApplication::translate("wdg_settingsTab", "135\302\260 X Mode", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("wdg_settingsTab", "225\302\260 X Mode", 0, QApplication::UnicodeUTF8)
         );
-        groupBox_16->setTitle(QApplication::translate("wdg_settingsTab", "ADC Rate", 0, QApplication::UnicodeUTF8));
-        label_226->setText(QApplication::translate("wdg_settingsTab", "ADC Rate", 0, QApplication::UnicodeUTF8));
-        updateAdcRate->setText(QApplication::translate("wdg_settingsTab", "update ADC rate", 0, QApplication::UnicodeUTF8));
-        groupBox->setTitle(QApplication::translate("wdg_settingsTab", "BlueTooth", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("wdg_settingsTab", "BlueTooth Setup", 0, QApplication::UnicodeUTF8));
         label_250->setText(QApplication::translate("wdg_settingsTab", "BT Mode", 0, QApplication::UnicodeUTF8));
         BTMode->clear();
         BTMode->insertItems(0, QStringList()
@@ -3900,6 +3739,14 @@ public:
          << QApplication::translate("wdg_settingsTab", "BT Enabled", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("wdg_settingsTab", "BT Exclusive", 0, QApplication::UnicodeUTF8)
         );
+#ifndef QT_NO_TOOLTIP
+        BTMode->setToolTip(QApplication::translate("wdg_settingsTab", "This enables the bluetooth serial to send telemetrie data.\n"
+"Anyways bluetooth will always accept setup data. \n"
+"You can even send setup data during flight. \n"
+"\n"
+"But in no case think about flashing in flight. \n"
+"Inflight flashing will cut the engines off!", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         settingsTab->setTabText(settingsTab->indexOf(basicSettings), QApplication::translate("wdg_settingsTab", "Basic Settings", 0, QApplication::UnicodeUTF8));
         channelMux->setTitle(QApplication::translate("wdg_settingsTab", "Cannel Mux", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("wdg_settingsTab", "Channel 0 to", 0, QApplication::UnicodeUTF8));
@@ -3921,14 +3768,22 @@ public:
          << QApplication::translate("wdg_settingsTab", "Multichannel", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("wdg_settingsTab", "Multi Port", 0, QApplication::UnicodeUTF8)
         );
+#ifndef QT_NO_TOOLTIP
+        PPMMode->setToolTip(QApplication::translate("wdg_settingsTab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Select if you have a multichannel receiver or a receiver with a pin for each PPM port.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">With multichannel you recive the whole PPM signal with a single pin. Otherwise you have to connect as many pins as you use channels.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><spa"
+                        "n style=\" font-size:8pt;\">Up to 9 Channels are possible. 10 with some tweaks.</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         MultichannelSetup->setTitle(QApplication::translate("wdg_settingsTab", "Multichannel Setup", 0, QApplication::UnicodeUTF8));
         label_45->setText(QApplication::translate("wdg_settingsTab", "PPM Offset1", 0, QApplication::UnicodeUTF8));
         label_44->setText(QApplication::translate("wdg_settingsTab", "PPM Offset2", 0, QApplication::UnicodeUTF8));
         label_43->setText(QApplication::translate("wdg_settingsTab", "PPM Min", 0, QApplication::UnicodeUTF8));
         label_41->setText(QApplication::translate("wdg_settingsTab", "PPM Max", 0, QApplication::UnicodeUTF8));
         label_42->setText(QApplication::translate("wdg_settingsTab", "Multichannel Max", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("wdg_settingsTab", "RC Throttle Limiter", 0, QApplication::UnicodeUTF8));
-        label_217->setText(QApplication::translate("wdg_settingsTab", "RC Throttle Max", 0, QApplication::UnicodeUTF8));
         RCOffsetSetup->setTitle(QApplication::translate("wdg_settingsTab", "Multiport Offset Setup", 0, QApplication::UnicodeUTF8));
         label_28->setText(QApplication::translate("wdg_settingsTab", "Channel 0", 0, QApplication::UnicodeUTF8));
         label_31->setText(QApplication::translate("wdg_settingsTab", "Channel 1", 0, QApplication::UnicodeUTF8));
@@ -3940,6 +3795,13 @@ public:
         label_34->setText(QApplication::translate("wdg_settingsTab", "Channel 7", 0, QApplication::UnicodeUTF8));
         label_39->setText(QApplication::translate("wdg_settingsTab", "Channel 8", 0, QApplication::UnicodeUTF8));
         label_63->setText(QApplication::translate("wdg_settingsTab", "PPM Offset", 0, QApplication::UnicodeUTF8));
+        ReceiverTypeBox->setTitle(QApplication::translate("wdg_settingsTab", "Receiver Setup", 0, QApplication::UnicodeUTF8));
+        label_153->setText(QApplication::translate("wdg_settingsTab", "Receiver Type", 0, QApplication::UnicodeUTF8));
+        ReceiverType->clear();
+        ReceiverType->insertItems(0, QStringList()
+         << QApplication::translate("wdg_settingsTab", "PPM", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("wdg_settingsTab", "Spektrum", 0, QApplication::UnicodeUTF8)
+        );
         settingsTab->setTabText(settingsTab->indexOf(RCSetup), QApplication::translate("wdg_settingsTab", "RC Setup", 0, QApplication::UnicodeUTF8));
         NickServo->setTitle(QApplication::translate("wdg_settingsTab", "Nick Servo", 0, QApplication::UnicodeUTF8));
         label_56->setText(QApplication::translate("wdg_settingsTab", "Enable Nick Servo", 0, QApplication::UnicodeUTF8));
@@ -4058,6 +3920,11 @@ public:
          << QApplication::translate("wdg_settingsTab", "Off", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("wdg_settingsTab", "On", 0, QApplication::UnicodeUTF8)
         );
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("wdg_settingsTab", "NMEA", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("wdg_settingsTab", "Ublox", 0, QApplication::UnicodeUTF8)
+        );
         GyroSetup->setTitle(QApplication::translate("wdg_settingsTab", "Gyro Type", 0, QApplication::UnicodeUTF8));
         GyroModeNick->clear();
         GyroModeNick->insertItems(0, QStringList()
@@ -4077,7 +3944,7 @@ public:
          << QApplication::translate("wdg_settingsTab", "Piezo", 0, QApplication::UnicodeUTF8)
         );
         label_213->setText(QApplication::translate("wdg_settingsTab", "Pitch Gyro", 0, QApplication::UnicodeUTF8));
-        groupBox_7->setTitle(QApplication::translate("wdg_settingsTab", "GroupBox", 0, QApplication::UnicodeUTF8));
+        groupBox_7->setTitle(QApplication::translate("wdg_settingsTab", "Gyro Bias", 0, QApplication::UnicodeUTF8));
         label_118->setText(QApplication::translate("wdg_settingsTab", "Nick Bias +", 0, QApplication::UnicodeUTF8));
         label_251->setText(QApplication::translate("wdg_settingsTab", "Nick Bias -", 0, QApplication::UnicodeUTF8));
         label_94->setText(QApplication::translate("wdg_settingsTab", "Roll Bias +", 0, QApplication::UnicodeUTF8));
@@ -4103,8 +3970,38 @@ public:
         GyroSetup_2->setTitle(QApplication::translate("wdg_settingsTab", "Gyro Temperature Drift", 0, QApplication::UnicodeUTF8));
         label_256->setText(QApplication::translate("wdg_settingsTab", "Roll Gyro", 0, QApplication::UnicodeUTF8));
         label_258->setText(QApplication::translate("wdg_settingsTab", "Nick Gyro", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        GyroDriftNick->setToolTip(QApplication::translate("wdg_settingsTab", "The Piezo Gyros suffer from some drif caused by them getting warm during use. To counter this change this value and monitor the gyros in the diagnostics screen. They should generate some near flat line. Ignore the slight jitter you might see in the line thats normal. But there should be no trend for the gyro to go up or down.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_257->setText(QApplication::translate("wdg_settingsTab", "Pitch Gyro", 0, QApplication::UnicodeUTF8));
+        groupBox_16->setTitle(QApplication::translate("wdg_settingsTab", "ADC Rate", 0, QApplication::UnicodeUTF8));
+        label_226->setText(QApplication::translate("wdg_settingsTab", "ADC Rate", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        AdcRate->setToolTip(QApplication::translate("wdg_settingsTab", "Defines how often to poll the ADC sensors", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        updateAdcRate->setText(QApplication::translate("wdg_settingsTab", "update ADC rate", 0, QApplication::UnicodeUTF8));
         settingsTab->setTabText(settingsTab->indexOf(sensorSetup), QApplication::translate("wdg_settingsTab", "Sensor Setup", 0, QApplication::UnicodeUTF8));
+        groupBox_4->setTitle(QApplication::translate("wdg_settingsTab", "Calibration", 0, QApplication::UnicodeUTF8));
+        startCalib->setText(QApplication::translate("wdg_settingsTab", "Start Calib", 0, QApplication::UnicodeUTF8));
+        stopCalib->setText(QApplication::translate("wdg_settingsTab", "Stop Calib", 0, QApplication::UnicodeUTF8));
+        groupBox_5->setTitle(QApplication::translate("wdg_settingsTab", "Values", 0, QApplication::UnicodeUTF8));
+        readCompassValues->setText(QApplication::translate("wdg_settingsTab", "Read Values", 0, QApplication::UnicodeUTF8));
+        writeCompassValues->setText(QApplication::translate("wdg_settingsTab", "Write Values", 0, QApplication::UnicodeUTF8));
+        groupBox_3->setTitle(QApplication::translate("wdg_settingsTab", "Values", 0, QApplication::UnicodeUTF8));
+        label_36->setText(QApplication::translate("wdg_settingsTab", "X Min", 0, QApplication::UnicodeUTF8));
+        label_37->setText(QApplication::translate("wdg_settingsTab", "Y Min", 0, QApplication::UnicodeUTF8));
+        label_38->setText(QApplication::translate("wdg_settingsTab", "Z Min", 0, QApplication::UnicodeUTF8));
+        X_OFFSET->setText(QString());
+        label_199->setText(QApplication::translate("wdg_settingsTab", "X Offset", 0, QApplication::UnicodeUTF8));
+        label_200->setText(QApplication::translate("wdg_settingsTab", "X Range", 0, QApplication::UnicodeUTF8));
+        label_201->setText(QApplication::translate("wdg_settingsTab", "X Max", 0, QApplication::UnicodeUTF8));
+        label_202->setText(QApplication::translate("wdg_settingsTab", "Y Range", 0, QApplication::UnicodeUTF8));
+        label_203->setText(QApplication::translate("wdg_settingsTab", "Y Offset", 0, QApplication::UnicodeUTF8));
+        label_204->setText(QApplication::translate("wdg_settingsTab", "Y Max", 0, QApplication::UnicodeUTF8));
+        label_205->setText(QApplication::translate("wdg_settingsTab", "Z Offset", 0, QApplication::UnicodeUTF8));
+        label_206->setText(QApplication::translate("wdg_settingsTab", "Z Range", 0, QApplication::UnicodeUTF8));
+        label_207->setText(QApplication::translate("wdg_settingsTab", "Z Max", 0, QApplication::UnicodeUTF8));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(MM3), QApplication::translate("wdg_settingsTab", "MM3", 0, QApplication::UnicodeUTF8));
         groupBox_18->setTitle(QApplication::translate("wdg_settingsTab", "Compass Rate", 0, QApplication::UnicodeUTF8));
         HMC5843_Rate->clear();
         HMC5843_Rate->insertItems(0, QStringList()
@@ -4176,6 +4073,7 @@ public:
         label_121->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
         label_122->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
         label_166->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
+        label_127->setText(QApplication::translate("wdg_settingsTab", "Pitch Stick Force", 0, QApplication::UnicodeUTF8));
         PIDRollSetup->setTitle(QApplication::translate("wdg_settingsTab", "Roll Setup", 0, QApplication::UnicodeUTF8));
         label_262->setText(QApplication::translate("wdg_settingsTab", "ACC P", 0, QApplication::UnicodeUTF8));
         label_84->setText(QApplication::translate("wdg_settingsTab", "Gyro+ACC Max", 0, QApplication::UnicodeUTF8));
@@ -4191,6 +4089,7 @@ public:
         label_95->setText(QApplication::translate("wdg_settingsTab", "ACC Force", 0, QApplication::UnicodeUTF8));
         label_85->setText(QApplication::translate("wdg_settingsTab", "Integral Max", 0, QApplication::UnicodeUTF8));
         label_86->setText(QApplication::translate("wdg_settingsTab", "Integral Min", 0, QApplication::UnicodeUTF8));
+        RollStick->setText(QApplication::translate("wdg_settingsTab", "Roll Stick", 0, QApplication::UnicodeUTF8));
         PIDNickSetup->setTitle(QApplication::translate("wdg_settingsTab", "Nick Setup", 0, QApplication::UnicodeUTF8));
         label_111->setText(QApplication::translate("wdg_settingsTab", "Gyro+ACC Min", 0, QApplication::UnicodeUTF8));
         label_115->setText(QApplication::translate("wdg_settingsTab", "Gyro P", 0, QApplication::UnicodeUTF8));
@@ -4206,10 +4105,33 @@ public:
         label_119->setText(QApplication::translate("wdg_settingsTab", "ACC Force", 0, QApplication::UnicodeUTF8));
         label_114->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
         label_108->setText(QApplication::translate("wdg_settingsTab", "Gyro+ACC Max", 0, QApplication::UnicodeUTF8));
+        label_150->setText(QApplication::translate("wdg_settingsTab", "Nick Stick", 0, QApplication::UnicodeUTF8));
         PIDStickSetup->setTitle(QApplication::translate("wdg_settingsTab", "Stick Setup", 0, QApplication::UnicodeUTF8));
-        label_126->setText(QApplication::translate("wdg_settingsTab", "XY Stick Force", 0, QApplication::UnicodeUTF8));
-        label_127->setText(QApplication::translate("wdg_settingsTab", "Pitch Stick Force", 0, QApplication::UnicodeUTF8));
         label_125->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        PIDThrottleOffset->setToolTip(QApplication::translate("wdg_settingsTab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">This offset gets added to the value coming from the stick. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">The stick sends -120 to 120 but we need 0 to 240 so we add to the incoming value. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Also this helps limiting the maximum value which "
+                        "can be reached</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        label_126->setText(QApplication::translate("wdg_settingsTab", "Heading Hold", 0, QApplication::UnicodeUTF8));
+        PIDHeadingHold->clear();
+        PIDHeadingHold->insertItems(0, QStringList()
+         << QApplication::translate("wdg_settingsTab", "Off", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("wdg_settingsTab", "On", 0, QApplication::UnicodeUTF8)
+        );
+#ifndef QT_NO_TOOLTIP
+        PIDHeadingHold->setToolTip(QApplication::translate("wdg_settingsTab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Be carefull what you do. This disables the ACC. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">With no ACC the flyer will keep what ever position you left it in with the last stick move</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         mathTab->setTabText(mathTab->indexOf(PID), QApplication::translate("wdg_settingsTab", "PID", 0, QApplication::UnicodeUTF8));
         PIDsimpleSetup->setTitle(QApplication::translate("wdg_settingsTab", "Simple Setup", 0, QApplication::UnicodeUTF8));
         label_128->setText(QApplication::translate("wdg_settingsTab", "Gyro+ACC Max", 0, QApplication::UnicodeUTF8));
@@ -4226,6 +4148,7 @@ public:
         label_264->setText(QApplication::translate("wdg_settingsTab", "ACC I", 0, QApplication::UnicodeUTF8));
         label_131->setText(QApplication::translate("wdg_settingsTab", "Integral Min", 0, QApplication::UnicodeUTF8));
         label_134->setText(QApplication::translate("wdg_settingsTab", "Gyro I", 0, QApplication::UnicodeUTF8));
+        label_151->setText(QApplication::translate("wdg_settingsTab", "Stick Force", 0, QApplication::UnicodeUTF8));
         PIDSimplePitchSetup->setTitle(QApplication::translate("wdg_settingsTab", "Pitch Setup", 0, QApplication::UnicodeUTF8));
         label_220->setText(QApplication::translate("wdg_settingsTab", "Integral Max", 0, QApplication::UnicodeUTF8));
         label_219->setText(QApplication::translate("wdg_settingsTab", "Integral Min", 0, QApplication::UnicodeUTF8));
@@ -4234,50 +4157,36 @@ public:
         label_142->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
         label_143->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
         label_146->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
+        label_148->setText(QApplication::translate("wdg_settingsTab", "Pitch Stick Force", 0, QApplication::UnicodeUTF8));
         PIDSimpleStickSetup->setTitle(QApplication::translate("wdg_settingsTab", "Stick Setup", 0, QApplication::UnicodeUTF8));
-        label_147->setText(QApplication::translate("wdg_settingsTab", "Stick Force", 0, QApplication::UnicodeUTF8));
-        label_148->setText(QApplication::translate("wdg_settingsTab", "Pitch Force", 0, QApplication::UnicodeUTF8));
         label_221->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
-        usePIDSimple->setText(QApplication::translate("wdg_settingsTab", "use PID Simple", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        PIDSimpleThrottleOffset->setToolTip(QApplication::translate("wdg_settingsTab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">This offset gets added to the value coming from the stick. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">The stick sends -120 to 120 but we need 0 to 240 so we add to the incoming value. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Also this helps limiting the maximum value which "
+                        "can be reached</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        label_152->setText(QApplication::translate("wdg_settingsTab", "Heading Hold", 0, QApplication::UnicodeUTF8));
+        PIDSimpleHeadingHold->clear();
+        PIDSimpleHeadingHold->insertItems(0, QStringList()
+         << QApplication::translate("wdg_settingsTab", "Off", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("wdg_settingsTab", "On", 0, QApplication::UnicodeUTF8)
+        );
+#ifndef QT_NO_TOOLTIP
+        PIDSimpleHeadingHold->setToolTip(QApplication::translate("wdg_settingsTab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Be carefull what you do. This disables the ACC. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">With no ACC the flyer will keep what ever position you left it in with the last stick move</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         readPID->setText(QApplication::translate("wdg_settingsTab", "read PID", 0, QApplication::UnicodeUTF8));
+        usePIDSimple->setText(QApplication::translate("wdg_settingsTab", "use PID Simple", 0, QApplication::UnicodeUTF8));
         mathTab->setTabText(mathTab->indexOf(PIDSimple), QApplication::translate("wdg_settingsTab", "PID Simple", 0, QApplication::UnicodeUTF8));
-        PDRollSetup->setTitle(QApplication::translate("wdg_settingsTab", "Roll Setup", 0, QApplication::UnicodeUTF8));
-        label_157->setText(QApplication::translate("wdg_settingsTab", "P", 0, QApplication::UnicodeUTF8));
-        label_154->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
-        label_156->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
-        label_161->setText(QApplication::translate("wdg_settingsTab", "ACC Force", 0, QApplication::UnicodeUTF8));
-        label_158->setText(QApplication::translate("wdg_settingsTab", "Pitch Force", 0, QApplication::UnicodeUTF8));
-        PDPitchSetup->setTitle(QApplication::translate("wdg_settingsTab", "Pitch Setup", 0, QApplication::UnicodeUTF8));
-        label_150->setText(QApplication::translate("wdg_settingsTab", "P", 0, QApplication::UnicodeUTF8));
-        label_151->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
-        label_152->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
-        label_165->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
-        PDStickSetup->setTitle(QApplication::translate("wdg_settingsTab", "Stick Setup", 0, QApplication::UnicodeUTF8));
-        label_153->setText(QApplication::translate("wdg_settingsTab", "Stick Force", 0, QApplication::UnicodeUTF8));
-        label_164->setText(QApplication::translate("wdg_settingsTab", "Pitch Force", 0, QApplication::UnicodeUTF8));
-        label_216->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
-        PDNickSetup->setTitle(QApplication::translate("wdg_settingsTab", "Nick Setup", 0, QApplication::UnicodeUTF8));
-        label_160->setText(QApplication::translate("wdg_settingsTab", "P", 0, QApplication::UnicodeUTF8));
-        label_155->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
-        label_159->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
-        label_163->setText(QApplication::translate("wdg_settingsTab", "ACC Force", 0, QApplication::UnicodeUTF8));
-        label_162->setText(QApplication::translate("wdg_settingsTab", "Pitch Force", 0, QApplication::UnicodeUTF8));
-        mathTab->setTabText(mathTab->indexOf(PD), QApplication::translate("wdg_settingsTab", "PD", 0, QApplication::UnicodeUTF8));
-        PDsimpleSetup->setTitle(QApplication::translate("wdg_settingsTab", "Simple Setup", 0, QApplication::UnicodeUTF8));
-        label_173->setText(QApplication::translate("wdg_settingsTab", "P", 0, QApplication::UnicodeUTF8));
-        label_171->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
-        label_172->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
-        label_175->setText(QApplication::translate("wdg_settingsTab", "ACC Force", 0, QApplication::UnicodeUTF8));
-        label_174->setText(QApplication::translate("wdg_settingsTab", "Pitch Force", 0, QApplication::UnicodeUTF8));
-        PDSimplePitchSetup->setTitle(QApplication::translate("wdg_settingsTab", "Pitch Setup", 0, QApplication::UnicodeUTF8));
-        label_167->setText(QApplication::translate("wdg_settingsTab", "P", 0, QApplication::UnicodeUTF8));
-        label_168->setText(QApplication::translate("wdg_settingsTab", "D", 0, QApplication::UnicodeUTF8));
-        label_169->setText(QApplication::translate("wdg_settingsTab", "Gyro Force", 0, QApplication::UnicodeUTF8));
-        label_170->setText(QApplication::translate("wdg_settingsTab", "Throttle Offset", 0, QApplication::UnicodeUTF8));
-        PDSimpleStickSetup->setTitle(QApplication::translate("wdg_settingsTab", "Stick Setup", 0, QApplication::UnicodeUTF8));
-        label_176->setText(QApplication::translate("wdg_settingsTab", "Stick Force", 0, QApplication::UnicodeUTF8));
-        label_177->setText(QApplication::translate("wdg_settingsTab", "Pitch Force", 0, QApplication::UnicodeUTF8));
-        mathTab->setTabText(mathTab->indexOf(PDSimple), QApplication::translate("wdg_settingsTab", "PD Simple", 0, QApplication::UnicodeUTF8));
         textEdit->setHtml(QApplication::translate("wdg_settingsTab", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -4286,6 +4195,10 @@ public:
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">But you get the idea of having multiple Math models</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         mathTab->setTabText(mathTab->indexOf(Kalman), QApplication::translate("wdg_settingsTab", "Kalman", 0, QApplication::UnicodeUTF8));
         settingsTab->setTabText(settingsTab->indexOf(math), QApplication::translate("wdg_settingsTab", "Math", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        userSettings_2->setToolTip(QApplication::translate("wdg_settingsTab", "This settings should help you to play with the codes without \n"
+"the need to think about the setting transport.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         userSettings_2->setTitle(QApplication::translate("wdg_settingsTab", "User Settings", 0, QApplication::UnicodeUTF8));
         label_179->setText(QApplication::translate("wdg_settingsTab", "Setting 1", 0, QApplication::UnicodeUTF8));
         userSet1->clear();
@@ -4664,7 +4577,15 @@ public:
          << QApplication::translate("wdg_settingsTab", "COM9", 0, QApplication::UnicodeUTF8)
          << QApplication::translate("wdg_settingsTab", "COM10", 0, QApplication::UnicodeUTF8)
         );
+#ifndef QT_NO_TOOLTIP
+        comPort->setToolTip(QApplication::translate("wdg_settingsTab", "Select the comport to be used on your PC. \n"
+"Speed is 115200 Bps with 8N1.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         groupBox_6->setTitle(QApplication::translate("wdg_settingsTab", "Logging", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        checkBox_2->setToolTip(QApplication::translate("wdg_settingsTab", "Shal the telemetrie data be logged to the HDD. \n"
+"If yes you find the files as CSV in your logs folder.", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         checkBox_2->setText(QApplication::translate("wdg_settingsTab", "enable Telemetrie Logs", 0, QApplication::UnicodeUTF8));
         settingsTab->setTabText(settingsTab->indexOf(osiFCsettings), QApplication::translate("wdg_settingsTab", "osiBS Setup", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

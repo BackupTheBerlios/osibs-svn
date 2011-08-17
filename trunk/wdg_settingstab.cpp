@@ -10,3 +10,5 @@ wdg_settingsTab::wdg_settingsTab(QWidget *parent) :
 wdg_settingsTab::~wdg_settingsTab()
 {
 }
+
+

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'basestation.ui'
 **
-** Created: Mon 10. Jan 18:56:35 2011
+** Created: Tue 16. Aug 21:16:32 2011
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -257,6 +257,9 @@ public:
     QCheckBox *checkChan10;
     QCheckBox *checkChan11;
     QCheckBox *checkChan12;
+    QCheckBox *checkMM3X;
+    QCheckBox *checkMM3Y;
+    QCheckBox *checkMM3Z;
     QWidget *Serial;
     QGridLayout *gridLayout_55;
     QGridLayout *serialGrid;
@@ -1310,6 +1313,7 @@ public:
 
         osiFcNum = new QSpinBox(horizontalLayoutWidget_2);
         osiFcNum->setObjectName(QString::fromUtf8("osiFcNum"));
+        osiFcNum->setEnabled(false);
         osiFcNum->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
         osiFcNum->setMinimum(0);
         osiFcNum->setMaximum(255);
@@ -1505,12 +1509,32 @@ public:
 
         gridLayout_35->addWidget(checkChan12, 6, 8, 1, 1);
 
+        checkMM3X = new QCheckBox(EnableData);
+        checkMM3X->setObjectName(QString::fromUtf8("checkMM3X"));
+        checkMM3X->setMaximumSize(QSize(16777215, 15));
+
+        gridLayout_35->addWidget(checkMM3X, 4, 2, 1, 1);
+
+        checkMM3Y = new QCheckBox(EnableData);
+        checkMM3Y->setObjectName(QString::fromUtf8("checkMM3Y"));
+        checkMM3Y->setMaximumSize(QSize(16777215, 15));
+
+        gridLayout_35->addWidget(checkMM3Y, 5, 2, 1, 1);
+
+        checkMM3Z = new QCheckBox(EnableData);
+        checkMM3Z->setObjectName(QString::fromUtf8("checkMM3Z"));
+        checkMM3Z->setMaximumSize(QSize(16777215, 15));
+
+        gridLayout_35->addWidget(checkMM3Z, 6, 2, 1, 1);
+
 
         verticalLayout_9->addWidget(EnableData);
 
         mainTab->addTab(Diagnostics, QString());
         Serial = new QWidget();
         Serial->setObjectName(QString::fromUtf8("Serial"));
+        sizePolicy.setHeightForWidth(Serial->sizePolicy().hasHeightForWidth());
+        Serial->setSizePolicy(sizePolicy);
         gridLayout_55 = new QGridLayout(Serial);
         gridLayout_55->setSpacing(6);
         gridLayout_55->setContentsMargins(0, 0, 0, 0);
@@ -1562,7 +1586,7 @@ public:
 
         retranslateUi(baseStation);
 
-        mainTab->setCurrentIndex(0);
+        mainTab->setCurrentIndex(2);
         wayPointTabs->setCurrentIndex(0);
 
 
@@ -1587,10 +1611,32 @@ public:
         Compass->setTitle(QApplication::translate("baseStation", "Compass", 0, QApplication::UnicodeUTF8));
         Attitude->setTitle(QApplication::translate("baseStation", "Attitude", 0, QApplication::UnicodeUTF8));
         AltidudeGain_3->setTitle(QApplication::translate("baseStation", "Gain Y", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        gainY->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Shows the gain measured by the Nick Gyro</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         Speed->setTitle(QApplication::translate("baseStation", "Speed", 0, QApplication::UnicodeUTF8));
         AltidudeGain_2->setTitle(QApplication::translate("baseStation", "Gain X", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        gainX->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Shows the gain measured by the Roll Gyro</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         groupBox_3->setTitle(QApplication::translate("baseStation", "Engines", 0, QApplication::UnicodeUTF8));
         AltidudeGain->setTitle(QApplication::translate("baseStation", "Alt Gain", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        altitudeGainMeter->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Shows how quick the flyer gains altitude. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Measured via the airpressure sensor</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         groupBox_8->setTitle(QApplication::translate("baseStation", "Altitude", 0, QApplication::UnicodeUTF8));
         groupBox_9->setTitle(QApplication::translate("baseStation", "Distance", 0, QApplication::UnicodeUTF8));
         groupBox_10->setTitle(QApplication::translate("baseStation", "Runtime", 0, QApplication::UnicodeUTF8));
@@ -1608,6 +1654,13 @@ public:
         RCChanText_2->setText(QApplication::translate("baseStation", "0", 0, QApplication::UnicodeUTF8));
         RCChanText_1->setText(QApplication::translate("baseStation", "0", 0, QApplication::UnicodeUTF8));
         UBatCok->setTitle(QApplication::translate("baseStation", "Battery", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        UBat->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Actual Batery voltage.</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         UBatText->setText(QApplication::translate("baseStation", "0", 0, QApplication::UnicodeUTF8));
         label_232->setText(QApplication::translate("baseStation", "Messages", 0, QApplication::UnicodeUTF8));
         mainTab->setTabText(mainTab->indexOf(Cockpit), QApplication::translate("baseStation", "Cockpit", 0, QApplication::UnicodeUTF8));
@@ -1657,13 +1710,65 @@ public:
         label_238->setText(QApplication::translate("baseStation", "Way Point List", 0, QApplication::UnicodeUTF8));
         wayPointTabs->setTabText(wayPointTabs->indexOf(wayPs), QApplication::translate("baseStation", "wayPL", 0, QApplication::UnicodeUTF8));
         mainTab->setTabText(mainTab->indexOf(Maps), QApplication::translate("baseStation", "Maps", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        readSetting->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Read settings from osiFC</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         readSetting->setText(QApplication::translate("baseStation", "Read Setting", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        readSetHdd->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Read settings stored on HDD</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         readSetHdd->setText(QApplication::translate("baseStation", "Read Set. HDD", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        resetOsiFC->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Send reset to osiFC. Only works over a cable </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">connection. Reset does not work via bluetooth</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         resetOsiFC->setText(QApplication::translate("baseStation", "Reset osiFC", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        flashSetting->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Write the settings in osiFC into mthe osiFC flash.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This is made so you can experiment with settings without storing them permanently in your osiFC.</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         flashSetting->setText(QApplication::translate("baseStation", "Flash Settings", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        writeSetHDD->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Write the settings from osiBS to HDD.</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         writeSetHDD->setText(QApplication::translate("baseStation", "Write Set. HDD", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        writeSetting->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sends the settings to osiFc and also stores them on HDD</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         writeSetting->setText(QApplication::translate("baseStation", "Write Setting", 0, QApplication::UnicodeUTF8));
         label_199->setText(QApplication::translate("baseStation", "Setting Num", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        settingNum->setToolTip(QApplication::translate("baseStation", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Arial'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Select which setting slot you want to use.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">osiFC offers 6 diefferent setting slots.</p></body></html>", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
         label_225->setText(QApplication::translate("baseStation", "osiFC Num", 0, QApplication::UnicodeUTF8));
         mainTab->setTabText(mainTab->indexOf(Setup), QApplication::translate("baseStation", "Setup", 0, QApplication::UnicodeUTF8));
         EnableData->setTitle(QApplication::translate("baseStation", "Enable Data", 0, QApplication::UnicodeUTF8));
@@ -1696,6 +1801,9 @@ public:
         checkChan10->setText(QApplication::translate("baseStation", "Chan 10", 0, QApplication::UnicodeUTF8));
         checkChan11->setText(QApplication::translate("baseStation", "Chan 11", 0, QApplication::UnicodeUTF8));
         checkChan12->setText(QApplication::translate("baseStation", "Chan 12", 0, QApplication::UnicodeUTF8));
+        checkMM3X->setText(QApplication::translate("baseStation", "MM3 X", 0, QApplication::UnicodeUTF8));
+        checkMM3Y->setText(QApplication::translate("baseStation", "MM3 Y", 0, QApplication::UnicodeUTF8));
+        checkMM3Z->setText(QApplication::translate("baseStation", "MM3 Z", 0, QApplication::UnicodeUTF8));
         mainTab->setTabText(mainTab->indexOf(Diagnostics), QApplication::translate("baseStation", "Diagnostics", 0, QApplication::UnicodeUTF8));
         mainTab->setTabText(mainTab->indexOf(Serial), QApplication::translate("baseStation", "Serial", 0, QApplication::UnicodeUTF8));
         mainTab->setTabText(mainTab->indexOf(EngineTest), QApplication::translate("baseStation", "I2C", 0, QApplication::UnicodeUTF8));

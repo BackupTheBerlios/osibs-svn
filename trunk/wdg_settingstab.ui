@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>726</width>
-    <height>406</height>
+    <width>732</width>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>724</width>
-     <height>401</height>
+     <width>795</width>
+     <height>430</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -41,7 +41,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>5</number>
    </property>
    <property name="tabsClosable">
     <bool>false</bool>
@@ -96,11 +96,15 @@
           <property name="enabled">
            <bool>true</bool>
           </property>
+          <property name="toolTip">
+           <string>This setup is to controll how much Throtle the system will alow after stick and math has be processed. Its kind of a limiter so handle with care. 
+After you did some experimenting and your sure your flyer works as expected set this to 254.</string>
+          </property>
           <property name="minimum">
            <number>0</number>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>254</number>
           </property>
           <property name="value">
            <number>160</number>
@@ -178,7 +182,7 @@
            <number>0</number>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>254</number>
           </property>
           <property name="value">
            <number>50</number>
@@ -218,6 +222,10 @@
         </item>
         <item row="0" column="1">
          <widget class="QSpinBox" name="calcWait">
+          <property name="toolTip">
+           <string>Wait how many main cycles to start a calculation cycle.
+This is athe poor mans solution for this. But for now it works fine ;)</string>
+          </property>
           <property name="minimum">
            <number>0</number>
           </property>
@@ -244,6 +252,9 @@
         </item>
         <item row="1" column="1">
          <widget class="QSpinBox" name="telemetrieWait">
+          <property name="toolTip">
+           <string>How many calc cycles to wait to print out telemetri.</string>
+          </property>
           <property name="minimum">
            <number>0</number>
           </property>
@@ -270,6 +281,10 @@
         </item>
         <item row="2" column="1">
          <widget class="QSpinBox" name="componentWait">
+          <property name="toolTip">
+           <string>How many calc cycles to wait to read the componets data.
+For now this is the compass.</string>
+          </property>
           <property name="minimum">
            <number>0</number>
           </property>
@@ -353,6 +368,9 @@
           <property name="minimum">
            <number>3</number>
           </property>
+          <property name="maximum">
+           <number>12</number>
+          </property>
           <property name="value">
            <number>4</number>
           </property>
@@ -368,16 +386,6 @@
           </property>
           <property name="text">
            <string>ESC Type</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QSpinBox" name="ESCType">
-          <property name="minimum">
-           <number>0</number>
-          </property>
-          <property name="maximum">
-           <number>9</number>
           </property>
          </widget>
         </item>
@@ -400,7 +408,7 @@
            <number>0</number>
           </property>
           <property name="maximum">
-           <number>255</number>
+           <number>254</number>
           </property>
           <property name="value">
            <number>82</number>
@@ -428,6 +436,25 @@
           <property name="value">
            <number>2</number>
           </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="ESCType">
+          <item>
+           <property name="text">
+            <string>I2C MK</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>I2C YGE</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>PPM</string>
+           </property>
+          </item>
          </widget>
         </item>
        </layout>
@@ -496,6 +523,9 @@
         </item>
         <item row="0" column="1">
          <widget class="QComboBox" name="calcMode">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <item>
            <property name="text">
             <string>PID</string>
@@ -510,6 +540,9 @@
         </item>
         <item row="2" column="1">
          <widget class="QComboBox" name="mainDirection">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="maximumSize">
            <size>
             <width>80</width>
@@ -582,51 +615,6 @@
        </property>
       </spacer>
      </item>
-     <item row="3" column="2">
-      <widget class="QGroupBox" name="groupBox_16">
-       <property name="title">
-        <string>ADC Rate</string>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_64">
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_226">
-          <property name="font">
-           <font>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>ADC Rate</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QSpinBox" name="AdcRate">
-          <property name="minimum">
-           <number>0</number>
-          </property>
-          <property name="maximum">
-           <number>255</number>
-          </property>
-          <property name="value">
-           <number>120</number>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="2">
-         <widget class="QPushButton" name="updateAdcRate">
-          <property name="text">
-           <string>update ADC rate</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
      <item row="0" column="2">
       <widget class="QGroupBox" name="groupBox">
        <property name="minimumSize">
@@ -642,9 +630,9 @@
         </size>
        </property>
        <property name="title">
-        <string>BlueTooth</string>
+        <string>BlueTooth Setup</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_11">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <property name="topMargin">
          <number>0</number>
         </property>
@@ -657,6 +645,14 @@
         </item>
         <item>
          <widget class="QComboBox" name="BTMode">
+          <property name="toolTip">
+           <string>This enables the bluetooth serial to send telemetrie data.
+Anyways bluetooth will always accept setup data. 
+You can even send setup data during flight. 
+
+But in no case think about flashing in flight. 
+Inflight flashing will cut the engines off!</string>
+          </property>
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -693,7 +689,7 @@
      <string>RC Setup</string>
     </attribute>
     <layout class="QGridLayout" name="gridLayout_46">
-     <item row="0" column="1" rowspan="3" colspan="2">
+     <item row="0" column="1" rowspan="4" colspan="2">
       <widget class="QGroupBox" name="channelMux">
        <property name="title">
         <string>Cannel Mux</string>
@@ -951,7 +947,7 @@
        </layout>
       </widget>
      </item>
-     <item row="0" column="3">
+     <item row="1" column="3">
       <widget class="QGroupBox" name="PPMSetup">
        <property name="minimumSize">
         <size>
@@ -975,6 +971,15 @@
         </item>
         <item row="0" column="1">
          <widget class="QComboBox" name="PPMMode">
+          <property name="toolTip">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Select if you have a multichannel receiver or a receiver with a pin for each PPM port.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;With multichannel you recive the whole PPM signal with a single pin. Otherwise you have to connect as many pins as you use channels.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Up to 9 Channels are possible. 10 with some tweaks.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <item>
            <property name="text">
             <string>Multichannel</string>
@@ -990,7 +995,7 @@
        </layout>
       </widget>
      </item>
-     <item row="1" column="3">
+     <item row="2" column="3">
       <widget class="QGroupBox" name="MultichannelSetup">
        <property name="title">
         <string>Multichannel Setup</string>
@@ -1093,36 +1098,7 @@
        </layout>
       </widget>
      </item>
-     <item row="2" column="3">
-      <widget class="QGroupBox" name="groupBox_2">
-       <property name="title">
-        <string>RC Throttle Limiter</string>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_32">
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_217">
-          <property name="text">
-           <string>RC Throttle Max</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QSpinBox" name="RCTrottleMax">
-          <property name="maximum">
-           <number>250</number>
-          </property>
-          <property name="value">
-           <number>25</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="1" column="4">
+     <item row="2" column="4">
       <spacer name="horizontalSpacer_11">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -1135,7 +1111,7 @@
        </property>
       </spacer>
      </item>
-     <item row="3" column="1">
+     <item row="4" column="1">
       <spacer name="verticalSpacer_32">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -1148,7 +1124,7 @@
        </property>
       </spacer>
      </item>
-     <item row="0" column="0" rowspan="3">
+     <item row="0" column="0" rowspan="4">
       <widget class="QGroupBox" name="RCOffsetSetup">
        <property name="title">
         <string>Multiport Offset Setup</string>
@@ -1323,6 +1299,36 @@
        </layout>
       </widget>
      </item>
+     <item row="0" column="3">
+      <widget class="QGroupBox" name="ReceiverTypeBox">
+       <property name="title">
+        <string>Receiver Setup</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_153">
+          <property name="text">
+           <string>Receiver Type</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="ReceiverType">
+          <item>
+           <property name="text">
+            <string>PPM</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Spektrum</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="PPM">
@@ -1345,7 +1351,7 @@
      <item row="1" column="1">
       <widget class="QTabWidget" name="tabWidget_2">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="camServos">
         <attribute name="title">
@@ -2081,9 +2087,6 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QSpinBox" name="GPSMode"/>
-        </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_52">
           <property name="text">
@@ -2139,6 +2142,20 @@
           <item>
            <property name="text">
             <string>On</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="comboBox">
+          <item>
+           <property name="text">
+            <string>NMEA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ublox</string>
            </property>
           </item>
          </widget>
@@ -2230,7 +2247,7 @@
      <item row="0" column="3" rowspan="2">
       <widget class="QGroupBox" name="groupBox_7">
        <property name="title">
-        <string>GroupBox</string>
+        <string>Gyro Bias</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_81">
         <property name="topMargin">
@@ -2246,7 +2263,7 @@
         <item row="0" column="2">
          <widget class="QSpinBox" name="PIDNickGyroBias">
           <property name="maximum">
-           <number>255</number>
+           <number>254</number>
           </property>
           <property name="value">
            <number>0</number>
@@ -2263,7 +2280,7 @@
         <item row="1" column="2">
          <widget class="QSpinBox" name="PIDNickGyroBiasNeg">
           <property name="minimum">
-           <number>-255</number>
+           <number>-254</number>
           </property>
           <property name="maximum">
            <number>0</number>
@@ -2285,8 +2302,11 @@
             <bold>false</bold>
            </font>
           </property>
+          <property name="minimum">
+           <number>0</number>
+          </property>
           <property name="maximum">
-           <number>255</number>
+           <number>254</number>
           </property>
           <property name="value">
            <number>0</number>
@@ -2303,7 +2323,7 @@
         <item row="3" column="2">
          <widget class="QSpinBox" name="PIDRollGyroBiasNeg">
           <property name="minimum">
-           <number>-255</number>
+           <number>-254</number>
           </property>
           <property name="maximum">
            <number>0</number>
@@ -2320,7 +2340,7 @@
         <item row="4" column="2">
          <widget class="QSpinBox" name="PIDPitchGyroBias">
           <property name="maximum">
-           <number>255</number>
+           <number>254</number>
           </property>
           <property name="value">
            <number>0</number>
@@ -2337,7 +2357,7 @@
         <item row="5" column="2">
          <widget class="QSpinBox" name="PIDPitchGyroBiasNeg">
           <property name="minimum">
-           <number>-255</number>
+           <number>-254</number>
           </property>
           <property name="maximum">
            <number>0</number>
@@ -2459,6 +2479,9 @@
         </item>
         <item row="0" column="2">
          <widget class="QSpinBox" name="GyroDriftNick">
+          <property name="toolTip">
+           <string>The Piezo Gyros suffer from some drif caused by them getting warm during use. To counter this change this value and monitor the gyros in the diagnostics screen. They should generate some near flat line. Ignore the slight jitter you might see in the line thats normal. But there should be no trend for the gyro to go up or down.</string>
+          </property>
           <property name="maximum">
            <number>250</number>
           </property>
@@ -2497,7 +2520,7 @@
        </layout>
       </widget>
      </item>
-     <item row="2" column="0">
+     <item row="2" column="0" rowspan="2">
       <spacer name="verticalSpacer_20">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -2519,6 +2542,67 @@
         <size>
          <width>40</width>
          <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="2">
+      <widget class="QGroupBox" name="groupBox_16">
+       <property name="title">
+        <string>ADC Rate</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_64">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_226">
+          <property name="font">
+           <font>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>ADC Rate</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="AdcRate">
+          <property name="toolTip">
+           <string>Defines how often to poll the ADC sensors</string>
+          </property>
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>254</number>
+          </property>
+          <property name="value">
+           <number>120</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QPushButton" name="updateAdcRate">
+          <property name="text">
+           <string>update ADC rate</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
         </size>
        </property>
       </spacer>
@@ -2569,6 +2653,312 @@
            <property name="currentIndex">
             <number>0</number>
            </property>
+           <widget class="QWidget" name="MM3">
+            <attribute name="title">
+             <string>MM3</string>
+            </attribute>
+            <widget class="QWidget" name="horizontalLayoutWidget">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>711</width>
+               <height>321</height>
+              </rect>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QFrame" name="frame">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QGroupBox" name="groupBox_4">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>0</y>
+                   <width>161</width>
+                   <height>91</height>
+                  </rect>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="title">
+                  <string>Calibration</string>
+                 </property>
+                 <widget class="QWidget" name="verticalLayoutWidget">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>20</y>
+                    <width>161</width>
+                    <height>71</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout">
+                   <item>
+                    <widget class="QPushButton" name="startCalib">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Start Calib</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="stopCalib">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Stop Calib</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+                <widget class="QGroupBox" name="groupBox_5">
+                 <property name="geometry">
+                  <rect>
+                   <x>9</x>
+                   <y>90</y>
+                   <width>161</width>
+                   <height>91</height>
+                  </rect>
+                 </property>
+                 <property name="title">
+                  <string>Values</string>
+                 </property>
+                 <widget class="QWidget" name="verticalLayoutWidget_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>20</y>
+                    <width>161</width>
+                    <height>71</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_2">
+                   <item>
+                    <widget class="QPushButton" name="readCompassValues">
+                     <property name="text">
+                      <string>Read Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="writeCompassValues">
+                     <property name="text">
+                      <string>Write Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>350</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="title">
+                 <string>Values</string>
+                </property>
+                <widget class="QWidget" name="gridLayoutWidget">
+                 <property name="geometry">
+                  <rect>
+                   <x>9</x>
+                   <y>9</y>
+                   <width>341</width>
+                   <height>171</height>
+                  </rect>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetDefaultConstraint</enum>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="X_MIN"/>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="Y_MIN"/>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QLineEdit" name="Z_MIN"/>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_36">
+                    <property name="text">
+                     <string>X Min</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_37">
+                    <property name="text">
+                     <string>Y Min</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_38">
+                    <property name="text">
+                     <string>Z Min</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="X_MAX"/>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="X_RANGE"/>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="X_OFFSET">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_199">
+                    <property name="text">
+                     <string>X Offset</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_200">
+                    <property name="text">
+                     <string>X Range</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_201">
+                    <property name="text">
+                     <string>X Max</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="Y_MAX"/>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLineEdit" name="Z_MAX"/>
+                  </item>
+                  <item row="2" column="3">
+                   <widget class="QLineEdit" name="Y_RANGE"/>
+                  </item>
+                  <item row="3" column="3">
+                   <widget class="QLineEdit" name="Y_OFFSET"/>
+                  </item>
+                  <item row="3" column="5">
+                   <widget class="QLineEdit" name="Z_OFFSET"/>
+                  </item>
+                  <item row="2" column="5">
+                   <widget class="QLineEdit" name="Z_RANGE"/>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QLabel" name="label_202">
+                    <property name="text">
+                     <string>Y Range</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QLabel" name="label_203">
+                    <property name="text">
+                     <string>Y Offset</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_204">
+                    <property name="text">
+                     <string>Y Max</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="4">
+                   <widget class="QLabel" name="label_205">
+                    <property name="text">
+                     <string>Z Offset</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="4">
+                   <widget class="QLabel" name="label_206">
+                    <property name="text">
+                     <string>Z Range</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QLabel" name="label_207">
+                    <property name="text">
+                     <string>Z Max</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
            <widget class="QWidget" name="HMC5843">
             <attribute name="title">
              <string>HMC 5843</string>
@@ -3047,18 +3437,22 @@
               </property>
              </widget>
             </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_127">
+              <property name="text">
+               <string>Pitch Stick Force</string>
+              </property>
+             </widget>
+            </item>
             <item row="7" column="1">
-             <spacer name="verticalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
+             <widget class="QSpinBox" name="PIDPitchStickForce">
+              <property name="maximum">
+               <number>255</number>
               </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
+              <property name="value">
+               <number>50</number>
               </property>
-             </spacer>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -3329,6 +3723,23 @@
               </property>
              </spacer>
             </item>
+            <item row="10" column="3">
+             <widget class="QLabel" name="RollStick">
+              <property name="text">
+               <string>Roll Stick</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="4">
+             <widget class="QSpinBox" name="PIDRollStickForce">
+              <property name="maximum">
+               <number>254</number>
+              </property>
+              <property name="value">
+               <number>120</number>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
@@ -3345,7 +3756,7 @@
            </property>
           </spacer>
          </item>
-         <item row="0" column="0" rowspan="7">
+         <item row="0" column="0" rowspan="8">
           <widget class="QGroupBox" name="PIDNickSetup">
            <property name="minimumSize">
             <size>
@@ -3611,21 +4022,51 @@
               </property>
              </spacer>
             </item>
+            <item row="11" column="2">
+             <widget class="QLabel" name="label_150">
+              <property name="text">
+               <string>Nick Stick</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="3">
+             <widget class="QSpinBox" name="PIDNickStickForce">
+              <property name="maximum">
+               <number>254</number>
+              </property>
+              <property name="value">
+               <number>120</number>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
-         <item row="4" column="3">
+         <item row="1" column="4">
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="2" column="3">
           <widget class="QGroupBox" name="PIDStickSetup">
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>120</height>
+             <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>102</height>
+             <height>132</height>
             </size>
            </property>
            <property name="title">
@@ -3635,40 +4076,6 @@
             <property name="topMargin">
              <number>0</number>
             </property>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_126">
-              <property name="text">
-               <string>XY Stick Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PIDStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-              <property name="value">
-               <number>100</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_127">
-              <property name="text">
-               <string>Pitch Stick Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PIDPitchStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-              <property name="value">
-               <number>50</number>
-              </property>
-             </widget>
-            </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_125">
               <property name="text">
@@ -3678,6 +4085,15 @@
             </item>
             <item row="2" column="1">
              <widget class="QSpinBox" name="PIDThrottleOffset">
+              <property name="toolTip">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This offset gets added to the value coming from the stick. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;The stick sends -120 to 120 but we need 0 to 240 so we add to the incoming value. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Also this helps limiting the maximum value which can be reached&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
               <property name="maximum">
                <number>255</number>
               </property>
@@ -3699,21 +4115,37 @@
               </property>
              </spacer>
             </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_126">
+              <property name="text">
+               <string>Heading Hold</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="PIDHeadingHold">
+              <property name="toolTip">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Be carefull what you do. This disables the ACC. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;With no ACC the flyer will keep what ever position you left it in with the last stick move&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Off</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>On</string>
+               </property>
+              </item>
+             </widget>
+            </item>
            </layout>
           </widget>
-         </item>
-         <item row="1" column="4">
-          <spacer name="horizontalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </widget>
@@ -3722,7 +4154,7 @@
          <string>PID Simple</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_36">
-         <item row="1" column="0" rowspan="3">
+         <item row="1" column="0" rowspan="5">
           <widget class="QGroupBox" name="PIDsimpleSetup">
            <property name="minimumSize">
             <size>
@@ -3988,10 +4420,27 @@
               </property>
              </spacer>
             </item>
+            <item row="11" column="2">
+             <widget class="QLabel" name="label_151">
+              <property name="text">
+               <string>Stick Force</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="3">
+             <widget class="QSpinBox" name="PIDSimpleStickForce">
+              <property name="maximum">
+               <number>255</number>
+              </property>
+              <property name="value">
+               <number>120</number>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
-         <item row="1" column="1" rowspan="3">
+         <item row="1" column="1" rowspan="5">
           <widget class="QGroupBox" name="PIDSimplePitchSetup">
            <property name="minimumSize">
             <size>
@@ -4133,14 +4582,14 @@
             <item row="6" column="1">
              <widget class="QSpinBox" name="PIDSimplePitchThrottleOffset">
               <property name="maximum">
-               <number>255</number>
+               <number>254</number>
               </property>
               <property name="value">
                <number>120</number>
               </property>
              </widget>
             </item>
-            <item row="7" column="0">
+            <item row="8" column="0">
              <spacer name="verticalSpacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -4153,14 +4602,37 @@
               </property>
              </spacer>
             </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_148">
+              <property name="text">
+               <string>Pitch Stick Force</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QSpinBox" name="PIDSimplePitchStickForce">
+              <property name="maximum">
+               <number>255</number>
+              </property>
+              <property name="value">
+               <number>55</number>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
-         <item row="1" column="2" rowspan="3">
+         <item row="1" column="2" rowspan="5">
           <widget class="QGroupBox" name="PIDSimpleStickSetup">
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>130</width>
+             <width>180</width>
              <height>16777215</height>
             </size>
            </property>
@@ -4171,40 +4643,6 @@
             <property name="topMargin">
              <number>0</number>
             </property>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_147">
-              <property name="text">
-               <string>Stick Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PIDSimpleStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-              <property name="value">
-               <number>120</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_148">
-              <property name="text">
-               <string>Pitch Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PIDSimplePitchStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-              <property name="value">
-               <number>55</number>
-              </property>
-             </widget>
-            </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_221">
               <property name="text">
@@ -4220,11 +4658,20 @@
                 <bold>false</bold>
                </font>
               </property>
+              <property name="toolTip">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This offset gets added to the value coming from the stick. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;The stick sends -120 to 120 but we need 0 to 240 so we add to the incoming value. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Also this helps limiting the maximum value which can be reached&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
               <property name="maximum">
-               <number>255</number>
+               <number>120</number>
               </property>
               <property name="value">
-               <number>100</number>
+               <number>70</number>
               </property>
              </widget>
             </item>
@@ -4241,10 +4688,39 @@
               </property>
              </spacer>
             </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_152">
+              <property name="text">
+               <string>Heading Hold</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="PIDSimpleHeadingHold">
+              <property name="toolTip">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Be carefull what you do. This disables the ACC. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;With no ACC the flyer will keep what ever position you left it in with the last stick move&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Off</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>On</string>
+               </property>
+              </item>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="6" column="0">
           <spacer name="verticalSpacer_5">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -4257,342 +4733,8 @@
            </property>
           </spacer>
          </item>
-         <item row="2" column="5">
-          <widget class="QPushButton" name="usePIDSimple">
-           <property name="text">
-            <string>use PID Simple</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="5">
-          <widget class="QPushButton" name="readPID">
-           <property name="text">
-            <string>read PID</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="PD">
-        <attribute name="title">
-         <string>PD</string>
-        </attribute>
-        <layout class="QGridLayout" name="gridLayout_38">
-         <item row="0" column="0" rowspan="2">
-          <widget class="QGroupBox" name="PDRollSetup">
-           <property name="title">
-            <string>Roll Setup</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_21">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_157">
-              <property name="text">
-               <string>P</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDRollP">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_154">
-              <property name="text">
-               <string>D</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDRollD">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_156">
-              <property name="text">
-               <string>Gyro Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="PDRollGyroForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_161">
-              <property name="text">
-               <string>ACC Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QSpinBox" name="PDRollACCForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_158">
-              <property name="text">
-               <string>Pitch Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QSpinBox" name="PDRollPitchForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <spacer name="verticalSpacer_16">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QGroupBox" name="PDPitchSetup">
-           <property name="title">
-            <string>Pitch Setup</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_24">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_150">
-              <property name="text">
-               <string>P</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDPitchP">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_151">
-              <property name="text">
-               <string>D</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDPitchD">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_152">
-              <property name="text">
-               <string>Gyro Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="PDPitchGyroForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_165">
-              <property name="text">
-               <string>Throttle Offset</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QSpinBox" name="PDPitchThrottleOffset">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="1" column="1" rowspan="2">
-          <widget class="QGroupBox" name="PDStickSetup">
-           <property name="title">
-            <string>Stick Setup</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_23">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_153">
-              <property name="text">
-               <string>Stick Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_164">
-              <property name="text">
-               <string>Pitch Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDPitchStick">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_216">
-              <property name="text">
-               <string>Throttle Offset</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="PDThrottleOffset">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <spacer name="verticalSpacer_18">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QGroupBox" name="PDNickSetup">
-           <property name="title">
-            <string>Nick Setup</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_22">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_160">
-              <property name="text">
-               <string>P</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDNickP">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_155">
-              <property name="text">
-               <string>D</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDNickD">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_159">
-              <property name="text">
-               <string>Gyro Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="PDNickGyroForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_163">
-              <property name="text">
-               <string>ACC Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QSpinBox" name="PDNickACCForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_162">
-              <property name="text">
-               <string>Pitch Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QSpinBox" name="PDNickPitchForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <spacer name="verticalSpacer_17">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <spacer name="horizontalSpacer_5">
+         <item row="5" column="3">
+          <spacer name="horizontalSpacer_2">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -4604,250 +4746,43 @@
            </property>
           </spacer>
          </item>
-         <item row="3" column="0">
-          <spacer name="verticalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
+         <item row="1" column="3">
+          <widget class="QPushButton" name="readPID">
+           <property name="minimumSize">
             <size>
-             <width>20</width>
-             <height>40</height>
+             <width>80</width>
+             <height>0</height>
             </size>
            </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="PDSimple">
-        <attribute name="title">
-         <string>PD Simple</string>
-        </attribute>
-        <layout class="QGridLayout" name="gridLayout_39">
-         <item row="0" column="0">
-          <widget class="QGroupBox" name="PDsimpleSetup">
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>80</width>
              <height>16777215</height>
             </size>
            </property>
-           <property name="title">
-            <string>Simple Setup</string>
+           <property name="text">
+            <string>read PID</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_25">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_173">
-              <property name="text">
-               <string>P</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDSimpleP">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_171">
-              <property name="text">
-               <string>D</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDSimpleD">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_172">
-              <property name="text">
-               <string>Gyro Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="PDSimpleGyroForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_175">
-              <property name="text">
-               <string>ACC Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QSpinBox" name="PDSimpleACCForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_174">
-              <property name="text">
-               <string>Pitch Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QSpinBox" name="PDSimplePitchForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QGroupBox" name="PDSimplePitchSetup">
-           <property name="maximumSize">
+         <item row="2" column="3">
+          <widget class="QPushButton" name="usePIDSimple">
+           <property name="minimumSize">
             <size>
-             <width>16777215</width>
-             <height>16666666</height>
+             <width>80</width>
+             <height>0</height>
             </size>
            </property>
-           <property name="title">
-            <string>Pitch Setup</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_26">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_167">
-              <property name="text">
-               <string>P</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDSimplePitch">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_168">
-              <property name="text">
-               <string>D</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDSimplePitchD">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_169">
-              <property name="text">
-               <string>Gyro Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QSpinBox" name="PDSimplePitchGyroForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_170">
-              <property name="text">
-               <string>Throttle Offset</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QSpinBox" name="PDSimplePitchThrottleOffset">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QGroupBox" name="PDSimpleStickSetup">
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>80</width>
              <height>16777215</height>
             </size>
            </property>
-           <property name="title">
-            <string>Stick Setup</string>
+           <property name="text">
+            <string>use PID Simple</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_27">
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_176">
-              <property name="text">
-               <string>Stick Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="PDSimpleStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_177">
-              <property name="text">
-               <string>Pitch Force</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QSpinBox" name="PDSimplePitchStickForce">
-              <property name="maximum">
-               <number>255</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
           </widget>
-         </item>
-         <item row="0" column="3">
-          <spacer name="horizontalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>204</width>
-             <height>182</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="0">
-          <spacer name="verticalSpacer_11">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </widget>
@@ -4891,6 +4826,10 @@ p, li { white-space: pre-wrap; }
     <layout class="QGridLayout" name="gridLayout_40">
      <item row="0" column="0">
       <widget class="QGroupBox" name="userSettings_2">
+       <property name="toolTip">
+        <string>This settings should help you to play with the codes without 
+the need to think about the setting transport.</string>
+       </property>
        <property name="title">
         <string>User Settings</string>
        </property>
@@ -6939,6 +6878,10 @@ p, li { white-space: pre-wrap; }
         </item>
         <item row="0" column="1">
          <widget class="QComboBox" name="comPort">
+          <property name="toolTip">
+           <string>Select the comport to be used on your PC. 
+Speed is 115200 Bps with 8N1.</string>
+          </property>
           <item>
            <property name="text">
             <string>COM1</string>
@@ -7028,6 +6971,10 @@ p, li { white-space: pre-wrap; }
        <layout class="QGridLayout" name="gridLayout_63">
         <item row="0" column="0">
          <widget class="QCheckBox" name="checkBox_2">
+          <property name="toolTip">
+           <string>Shal the telemetrie data be logged to the HDD. 
+If yes you find the files as CSV in your logs folder.</string>
+          </property>
           <property name="text">
            <string>enable Telemetrie Logs</string>
           </property>

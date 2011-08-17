@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'curve.h'
 **
-** Created: Mon 10. Jan 18:58:51 2011
+** Created: Mon 25. Apr 18:56:49 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!

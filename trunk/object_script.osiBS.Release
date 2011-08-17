@@ -37,6 +37,7 @@ INPUT(
 ./obj/wdg_settingstab.o
 ./obj/wdg_serialtab.o
 ./obj/wdg_i2ctab.o
+./obj/settings.o
 ./obj/moc_curve.o
 ./obj/moc_geometry.o
 ./obj/moc_imagemanager.o

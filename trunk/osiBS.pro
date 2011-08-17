@@ -26,7 +26,8 @@ SOURCES += main.cpp \
     ccompass.cpp \
     wdg_settingstab.cpp \
     wdg_serialtab.cpp \
-    wdg_i2ctab.cpp
+    wdg_i2ctab.cpp \
+    settings.cpp
 HEADERS += basestation.h \ # ui_basestation.h \
     speedo_meter.h \
     attitude_indicator.h \

@@ -17,7 +17,7 @@ cLogFile::~cLogFile()
 void cLogFile::openLog()
 {
     QString date = myLocaltime.currentDateTime().toLocalTime().toString("yyyyMMddhhmmss");
-    QString fileName = "logs/osiBS_"+date+".log";
+    QString fileName = "logs/osiBS_"+date+".csv";
     file.setFileName(fileName);
     file.open(QIODevice::WriteOnly);
 }
